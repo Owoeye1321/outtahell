@@ -8,6 +8,8 @@ import ScrollToTop from './components/Helper/ScrollToTop';
 import HomeOne from './components/HomeOne';
 import News from './components/News';
 import Login from './components/login';
+import Signup from './components/signUp'
+import ForgetPassword from './components/forgetpassword'
 import SingleNews from './components/News/SingleNews';
 import Service from './components/Service';
 
@@ -38,8 +40,10 @@ function Routes() {
                             <Route exact path="/service" component={Service} />
                             <Route exact path="/about-us" component={AboutUs} />
                             <Route exact path="/contact" component={Contact} />
+                            <Route exact path="/forgetpassword" component={ForgetPassword} />
                             <Route exact path="/error" component={Error} />
                             <Route exact path="/login" component={Login} />
+                            <Route exact path="/signup" component={Signup} />
                             <Route component={Error} />
                         </Switch>
                     </ScrollToTop>
