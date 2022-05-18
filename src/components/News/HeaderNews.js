@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import logo from '../../assets/images/logo-7.png';
+import logo from '../../assets/images/see.svg';
 import StickyMenu from '../../lib/StickyMenu';
 import Navigation from '../Navigation';
 
@@ -16,7 +16,8 @@ function HeaderNews({ action }) {
                             <div className="col-lg-2 col-md-4 col-sm-5 col-6 order-1 order-sm-1">
                                 <div className="appie-logo-box">
                                     <a href="/">
-                                        <img src={logo} alt="" />
+                                    <img src={logo} alt="" style = {{width:'40px', height:'40px'}}/>
+                                    <strong style ={{color:'white', fontSize:'20px'}}> <strong style ={{color:'black', height:'50px'}}>-</strong> Rentals</strong>
                                     </a>
                                 </div>
                             </div>

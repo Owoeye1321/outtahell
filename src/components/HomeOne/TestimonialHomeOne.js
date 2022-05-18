@@ -36,9 +36,7 @@ function TestimonialHomeOne() {
                                     </div>
                                     <div className="text">
                                         <p>
-                                            Why I say old chap that is spiffing lurgy Oxford
-                                            cracking goal bleeder, bog-standard Harry brilliant mush
-                                            a blinding shot starkers.
+                                           Thank you so much C-rentals for helping me out about my accommodation, i am new here and i got an apartment with ease
                                         </p>
                                         <ul>
                                             <li>
@@ -67,9 +65,7 @@ function TestimonialHomeOne() {
                                     </div>
                                     <div className="text">
                                         <p>
-                                            Why I say old chap that is spiffing lurgy Oxford
-                                            cracking goal bleeder, bog-standard Harry brilliant mush
-                                            a blinding shot starkers.
+                                           Thanks for easing my stress in serching for a very good hostel around the south gate, it has been really good staying here.
                                         </p>
                                         <ul>
                                             <li>
@@ -98,9 +94,7 @@ function TestimonialHomeOne() {
                                     </div>
                                     <div className="text">
                                         <p>
-                                            Why I say old chap that is spiffing lurgy Oxford
-                                            cracking goal bleeder, bog-standard Harry brilliant mush
-                                            a blinding shot starkers.
+                                           Thank for getting me an hostel here in the south gate , i am a fresher here in futa
                                         </p>
                                         <ul>
                                             <li>

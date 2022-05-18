@@ -1,5 +1,5 @@
 import React from 'react';
-import thumb from '../../assets/images/traffic-thumb.png';
+import thumb from '../../assets/images/three.jpg';
 
 function TrafficHomeOne() {
     return (
@@ -9,10 +9,9 @@ function TrafficHomeOne() {
                     <div className="col-lg-7">
                         <div className="appie-traffic-title">
                             <span>Traffic</span>
-                            <h3 className="title">Stage reporting with 50k queries.</h3>
+                            <h3 className="title">Payment must not be made in person.</h3>
                             <p>
-                                He nicked it tickety boo harry the cras bargy chap mush spiffing
-                                spend a penny the full monty burke butty.
+                                C-rentals advises you not to pay to any individuals except it's from a valid agent sourse.
                             </p>
                         </div>
                         <div className="row">
@@ -22,7 +21,7 @@ function TrafficHomeOne() {
                                         <i className="fal fa-check" />
                                     </div>
                                     <h5 className="title">Carefully designed</h5>
-                                    <p>Mucker plastered bugger all mate morish are.</p>
+                                    <p>All hostels on here are the best in FUTA .</p>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-6">
@@ -30,8 +29,8 @@ function TrafficHomeOne() {
                                     <div className="icon">
                                         <i className="fal fa-check" />
                                     </div>
-                                    <h5 className="title">Choose a App</h5>
-                                    <p>Mucker plastered bugger all mate morish are.</p>
+                                    <h5 className="title">Choose a location</h5>
+                                    <p>All the hostels in the locations are available.</p>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-6">
@@ -39,8 +38,8 @@ function TrafficHomeOne() {
                                     <div className="icon">
                                         <i className="fal fa-check" />
                                     </div>
-                                    <h5 className="title">Seamless Sync</h5>
-                                    <p>Mucker plastered bugger all mate morish are.</p>
+                                    <h5 className="title">Checking in</h5>
+                                    <p>Check in at your hostels after Payment.</p>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-6">
@@ -49,22 +48,16 @@ function TrafficHomeOne() {
                                         <i className="fal fa-check" />
                                     </div>
                                     <h5 className="title">User Interactive</h5>
-                                    <p>Mucker plastered bugger all mate morish are.</p>
+                                    <p>C-rentals helps student for ease acces.</p>
                                 </div>
                             </div>
-                            <div className="col-lg-12">
-                                <div className="traffic-btn mt-50">
-                                    <a className="main-btn" href="#">
-                                        Learn More <i className="fal fa-arrow-right" />
-                                    </a>
-                                </div>
-                            </div>
+                        
                         </div>
                     </div>
                 </div>
             </div>
             <div className="traffic-thumb ">
-                <img
+                <img style = {{width:'846', height:"677px"}}
                     className="wow animated fadeInRight"
                     data-wow-duration="2000ms"
                     data-wow-delay="200ms"

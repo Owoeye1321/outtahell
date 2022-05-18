@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/see.svg";
 
 function FooterHomeOne({ className }) {
   return (
@@ -12,15 +12,14 @@ function FooterHomeOne({ className }) {
               <div className="footer-about-widget">
                 <div className="logo">
                   <a href="#">
-                    <img src={logo} alt="" />
-                  </a>
+                  <img src={logo} alt="" style = {{width:'40px', height:'40px'}}/>
+                                    <strong style ={{color:'blue', fontSize:'20px'}}> <strong style ={{color:'black', height:'50px'}}>-</strong> Rentals</strong>
+                              </a>
                 </div>
                 <p>
-                  Appie WordPress is theme is the last theme you will ever have.
+                C-rentals is the best real hostel provider you will ever have.
                 </p>
-                <a href="#">
-                  Read More <i className="fal fa-arrow-right" />
-                </a>
+               
                 <div className="social mt-30">
                   <ul>
                     <li>
@@ -47,7 +46,7 @@ function FooterHomeOne({ className }) {
                 </div>
               </div>
             </div>
-            <div className="col-lg-2 col-md-6">
+            <div className="col-lg-4 col-md-6">
               <div className="footer-navigation">
                 <h4 className="title">Company</h4>
                 <ul>
@@ -58,40 +57,12 @@ function FooterHomeOne({ className }) {
                     <Link to="/Service">Service</Link>
                   </li>
                   <li>
-                    <a href="#">Case Studies</a>
-                  </li>
-                  <li>
-                    <Link to="/news">Blog</Link>
-                  </li>
-                  <li>
                     <Link to="/contact">Contact</Link>
                   </li>
                 </ul>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="footer-navigation">
-                <h4 className="title">Support</h4>
-                <ul>
-                  <li>
-                    <Link to="/about-us">Community</Link>
-                  </li>
-                  <li>
-                    <a href="#">Resources</a>
-                  </li>
-                  <li>
-                    <a href="#">Faqs</a>
-                  </li>
-                  <li>
-                    <a href="#">Privacy Policy</a>
-                  </li>
-                  <li>
-                    <a href="#">Careers</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
+            <div className="col-lg-4 col-md-6">
               <div className="footer-widget-info">
                 <h4 className="title">Get In Touch</h4>
                 <ul>

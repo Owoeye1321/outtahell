@@ -13,7 +13,7 @@ function FaqHomeOne({ className }) {
                         <div className="col-lg-12">
                             <div className="appie-section-title text-center">
                                 <h3 className="appie-title">Frequently asked questions</h3>
-                                <p>Different layouts and styles for team sections.</p>
+                                <p>Guides in serching for good accomodation without stress.</p>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ function FaqHomeOne({ className }) {
                                     >
                                         <div className="accrodion-inner">
                                             <div className="accrodion-title">
-                                                <h4>Where do I usually find FAQs in a page?</h4>
+                                                <h4>Who do i pay my accomodation fee to?</h4>
                                             </div>
                                             <div
                                                 className="accrodion-content"
@@ -44,9 +44,7 @@ function FaqHomeOne({ className }) {
                                             >
                                                 <div className="inner">
                                                     <p>
-                                                        Naff Oxford vagabond in my flat chinwag
-                                                        blatant grub tomfoolery that I bits and bobs
-                                                        up the duff cras boot bevvy no biggie.
+                                                       You would find the contact of the agent in charge of the hostel seen, call or either him and meet him in person before payment.
                                                     </p>
                                                 </div>
                                             </div>
@@ -58,7 +56,7 @@ function FaqHomeOne({ className }) {
                                     >
                                         <div className="accrodion-inner">
                                             <div className="accrodion-title">
-                                                <h4>Where do I usually find FAQs in a page?</h4>
+                                                <h4>What is the procedure for checking in?</h4>
                                             </div>
                                             <div
                                                 className="accrodion-content"
@@ -68,9 +66,7 @@ function FaqHomeOne({ className }) {
                                             >
                                                 <div className="inner">
                                                     <p>
-                                                        Naff Oxford vagabond in my flat chinwag
-                                                        blatant grub tomfoolery that I bits and bobs
-                                                        up the duff cras boot bevvy no biggie.
+                                                      The agent would give you the key to your hostel immediately you make the payment to him.
                                                     </p>
                                                 </div>
                                             </div>
@@ -95,7 +91,7 @@ function FaqHomeOne({ className }) {
                                     >
                                         <div className="accrodion-inner">
                                             <div className="accrodion-title">
-                                                <h4>Where do I usually find FAQs in a page?</h4>
+                                                <h4>What if the features are not present in the hostel?</h4>
                                             </div>
                                             <div
                                                 className="accrodion-content"
@@ -105,9 +101,7 @@ function FaqHomeOne({ className }) {
                                             >
                                                 <div className="inner">
                                                     <p>
-                                                        Naff Oxford vagabond in my flat chinwag
-                                                        blatant grub tomfoolery that I bits and bobs
-                                                        up the duff cras boot bevvy no biggie.
+                                                       After checking the hostel and the features are not provided, you can decline the process.
                                                     </p>
                                                 </div>
                                             </div>
@@ -119,7 +113,7 @@ function FaqHomeOne({ className }) {
                                     >
                                         <div className="accrodion-inner">
                                             <div className="accrodion-title">
-                                                <h4>Where do I usually find FAQs in a page?</h4>
+                                                <h4>What if i am scammed by an agent?</h4>
                                             </div>
                                             <div
                                                 className="accrodion-content"
@@ -129,9 +123,7 @@ function FaqHomeOne({ className }) {
                                             >
                                                 <div className="inner">
                                                     <p>
-                                                        Naff Oxford vagabond in my flat chinwag
-                                                        blatant grub tomfoolery that I bits and bobs
-                                                        up the duff cras boot bevvy no biggie.
+                                                       Contact us and send the details of the agent and the address of the hostel. 
                                                     </p>
                                                 </div>
                                             </div>
@@ -144,7 +136,7 @@ function FaqHomeOne({ className }) {
                             <div className="faq-text text-center pt-40">
                                 <p>
                                     Can't find an answer?{' '}
-                                    <a href="mailto:demo@gmail.com">Email us</a>
+                                    <a href="cyberxurde@gmail.com">Email us</a>
                                 </p>
                             </div>
                         </div>

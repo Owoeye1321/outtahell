@@ -15,10 +15,10 @@ function ServicesHomeOne({ className }) {
           <div className="col-lg-6">
             <div className="appie-section-title text-center">
               <h3 className="appie-title">
-                Designed with <br /> The applicant in mind.
+                Available for <br /> The students in FUTA.
               </h3>
               <p>
-                The full monty spiffing good time no biggie cack grub fantastic.{" "}
+               The better and best comfortability can be achieved in the community.{" "}
               </p>
             </div>
           </div>
@@ -49,7 +49,7 @@ function ServicesHomeOne({ className }) {
                 <span>2</span>
               </div>
               <h4 className="appie-title">Designing</h4>
-              <p>Mucker plastered bugger all mate morish are.</p>
+              <p>Make your home suitable and attractive to visitors.</p>
             </div>
           </div>
           <div className="col-lg-3 col-md-6">
@@ -63,7 +63,7 @@ function ServicesHomeOne({ className }) {
                 <span>3</span>
               </div>
               <h4 className="appie-title">Building</h4>
-              <p>Mucker plastered bugger all mate morish are.</p>
+              <p>Fixes and repair all damages in your hostels.</p>
             </div>
           </div>
           <div className="col-lg-3 col-md-6">
@@ -77,7 +77,7 @@ function ServicesHomeOne({ className }) {
                 <span>4</span>
               </div>
               <h4 className="appie-title">Suporting</h4>
-              <p>Mucker plastered bugger all mate morish are.</p>
+              <p>FUTA provides better system to its students.</p>
             </div>
           </div>
         </div>
