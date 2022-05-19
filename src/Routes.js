@@ -12,6 +12,9 @@ import Signup from "./components/signUp";
 import ForgetPassword from "./components/forgetpassword";
 import SingleNews from "./components/News/SingleNews";
 import Service from "./components/Service";
+import NorthGate from "./components/Gates/NorthGate";
+import SouthGate from "./components/Gates/SouthGate";
+import WestGate from "./components/Gates/WestGate";
 
 function Routes() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +47,9 @@ function Routes() {
               <Route exact path="/error" component={Error} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/northgate" component={NorthGate} />
+              <Route exact path="/southgate" component={SouthGate} />
+              <Route exact path="/westgate" component={WestGate} />
               <Route component={Error} />
             </Switch>
           </ScrollToTop>

@@ -15,10 +15,11 @@ function ServicesHomeOne({ className }) {
           <div className="col-lg-6">
             <div className="appie-section-title text-center">
               <h3 className="appie-title">
-                Available for <br /> The students in FUTA.
+                Available for <br /> all students in FUTA.
               </h3>
               <p>
-               The better and best comfortability can be achieved in the community.{" "}
+                The better and best comfortability can be achieved in the
+                community.{" "}
               </p>
             </div>
           </div>

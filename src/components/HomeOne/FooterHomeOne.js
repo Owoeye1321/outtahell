@@ -12,14 +12,24 @@ function FooterHomeOne({ className }) {
               <div className="footer-about-widget">
                 <div className="logo">
                   <a href="#">
-                  <img src={logo} alt="" style = {{width:'40px', height:'40px'}}/>
-                                    <strong style ={{color:'blue', fontSize:'20px'}}> <strong style ={{color:'black', height:'50px'}}>-</strong> Rentals</strong>
-                              </a>
+                    <img
+                      src={logo}
+                      alt=""
+                      style={{ width: "40px", height: "40px" }}
+                    />
+                    <strong style={{ color: "blue", fontSize: "20px" }}>
+                      {" "}
+                      <strong style={{ color: "black", height: "50px" }}>
+                        -
+                      </strong>{" "}
+                      Rentals
+                    </strong>
+                  </a>
                 </div>
                 <p>
-                C-rentals is the best real hostel provider you will ever have.
+                  C-rentals is the best real hostel provider you will ever have.
                 </p>
-               
+
                 <div className="social mt-30">
                   <ul>
                     <li>
