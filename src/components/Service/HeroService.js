@@ -9,9 +9,9 @@ function HeroService() {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="appie-page-title-item">
-                                <span>Fast Development</span>
+                                <span>Easy access</span>
                                 <h3 className="title">
-                                    Simple but effective, <br /> effortless yet powerful.
+                                    Simple but affordable, <br /> stressfree yet available.
                                 </h3>
                                 <div className="thumb">
                                     <img src={thumb} alt="" />

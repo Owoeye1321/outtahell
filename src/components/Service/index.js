@@ -3,7 +3,6 @@ import useToggle from '../../Hooks/useToggle';
 import StickyMenu from '../../lib/StickyMenu';
 import BackToTop from '../BackToTop';
 import FooterHomeOne from '../HomeOne/FooterHomeOne';
-import ProjectHomeOne from '../HomeOne/ProjectHomeOne';
 import Drawer from '../Mobile/Drawer';
 import DetailsService from './DetailsService';
 import HeaderService from './HeaderService';
@@ -20,7 +19,6 @@ function Service() {
             <HeaderService action={drawerAction.toggle} />
             <HeroService />
             <DetailsService />
-            <ProjectHomeOne />
             <FooterHomeOne />
             <BackToTop />
         </>

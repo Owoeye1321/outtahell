@@ -1,23 +1,61 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { useState } from 'react';
 function Login() {
+	const [error, setError] = useState('')
+    const [data, setData ] = useState({
+        username:'',
+        password:''
+    })
+    const handle = (e)=>{
+        const newData = {...data}
+        newData[e.target.id] = e.target.value
+        setData(newData)
+        console.log(newData)
+    }
+
+    // const submit = async (e)=>{
+    //     e.preventDefault()
+    //     const details = {
+    //         username:data.username,
+    //         password:data.password
+    //     }
+    //     const response = await axios.post('/login',{details})
+    //     if (response){
+    //         if(response.data === 'Invalid details')
+    //         {
+    //             setError('invalid details')
+    //             console.log(response)
+                
+    //         }
+    //        if (response.data == 'success') {
+               
+    //                 alert('Welcome '+ details.username)
+    //                 //window.location.assign("http://localhost:3000/cart")
+              
+    //         } 
+    //     }   
+        
+    // }
+
+
+	
     return (
         <div>
             <div className='row'>
-                <div className='col-sm-12 col-md-4 col-lg-4'>
+                <div className='col-sm-12 col-md-3 col-lg-4'>
 
                 </div>
-                <div className='col-sm-12 col-md-4 col-lg-4' style = {{padding:'150px 50px 50px 50px'}}>
+                <div className='col-sm-12 col-md-6 col-lg-4' style = {{padding:'150px 50px 50px 50px'}}>
 	                
 	                        <h4 className="mb-3">Login</h4>
-	                        <form className="input_style_1" method="post">
+	                        <form>
 	                            <div className="form-group">
-	                                <label for="email_address">Email Address</label>
-	                                <input type="email" name="email_address" id="email_address" className="form-control"/>
+	                                <label>Username</label>
+	                                <input onChange = {(e)=>handle(e)} type="text"  id="email" className="form-control"/>
 	                            </div>
 	                            <div className="form-group">
-	                                <label for="password">Password</label>
-	                                <input type="password" name="password" id="password" className="form-control"/>
+	                                <label>Password</label>
+	                                <input onChange = {(e)=>handle(e)} type="password" id="password" className="form-control"/>
 	                            </div>
 	                            <div className="clearfix mb-3">
 	                                <div className="float-left">
@@ -28,13 +66,16 @@ function Login() {
 	                                </div>
 	                            </div>
 	                            <input type= 'submit' className = 'form-control success mb-3'  />
+								<div  style ={{fontSize: '10px',marginBottom: '0px'}}>
+                                <i style={{marginBottom:"-1px",color:'red'}}>{error}</i>
+                                </div>
 	                        </form>
 	            
                         <center>© 2021 FUTA PROJECT - All Rights Reserved.</center>
                         </div>
 
         
-                <div className='col-sm-12 col-md-4 col-lg-4'>
+                <div className='col-sm-12 col-md-3 col-lg-4'>
 
                 </div>
                 

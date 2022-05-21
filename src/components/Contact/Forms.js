@@ -1,6 +1,48 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { useState } from 'react';
 
 function Forms() {
+    const [data, setData ] = useState({
+        fname:'',
+        lname:'',
+        email:'',
+        phone:'',
+        subject:'',
+        message:''
+    })
+
+    const handle = (e)=>{
+        const newData = {...data}
+        newData[e.target.id] = e.target.value
+        setData(newData)
+    }
+    
+    // const submit = async(e)=>{
+      
+    //     e.preventDefault()
+    //     const result = await axios.post('/signUp',
+    //     { 
+    //         username:data.username,
+    //         password:data.password,
+    //         email:data.email
+    //     })
+    // if(result.data === "exist"){
+    //     setColor('blue')
+    //     setError('User already exist')  
+    //     console.log(result)
+    //    }  
+        
+    //    else if(result.data == "success"){
+    //        alert("Signed Up Successfully,login to continue")
+    //    // window.location.assign("http://localhost:3000/login")
+    //    }
+    //    else if (result.data !== "success") {
+    //     setColor('red')
+    //     setError('Invalid details')
+        
+    // }
+    // }  
     return (
         <>
             <section className="contact-section">
@@ -14,8 +56,8 @@ function Forms() {
                                     <h5>Headquaters</h5>
                                     <p>
                                         <i className="fal fa-home"></i>
-                                        744 New York Ave, Brooklyn, Kings,
-                                        <br /> New York 10224
+                                      Federal university of technology
+                                        <br /> Minna
                                     </p>
                                 </div>
                                 <div className="single-info">
@@ -25,15 +67,6 @@ function Forms() {
                                         (+642) 245 356 432
                                         <br />
                                         (+420) 336 476 328
-                                    </p>
-                                </div>
-                                <div className="single-info">
-                                    <h5>Support</h5>
-                                    <p>
-                                        <i className="fal fa-envelope"></i>
-                                        bisy@support.com
-                                        <br />
-                                        help@education.com
                                     </p>
                                 </div>
                                 <div className="ab-social">
@@ -56,34 +89,37 @@ function Forms() {
                         <div className="col-md-8">
                             <div className="contact-form">
                                 <h4>Let’s Connect</h4>
-                                <p>Integer at lorem eget diam facilisis lacinia ac id massa.</p>
-                                <form action="#" method="post" className="row">
+                                <p>Send us a message to connect with you.</p>
+                                <form className="row">
                                     <div className="col-md-6">
-                                        <input type="text" name="f-name" placeholder="First Name" />
+                                        <input type="text" onChange = {(e)=>handle(e)}   id="fname" placeholder="First Name" />
                                     </div>
                                     <div className="col-md-6">
-                                        <input type="text" name="l-name" placeholder="Last Name" />
+                                        <input type="text" onChange = {(e)=>handle(e)}  id="lname" placeholder="Last Name" />
                                     </div>
                                     <div className="col-md-6">
-                                        <input
+                                        <input 
+                                            onChange = {(e)=>handle(e)}  
                                             type="email"
-                                            name="email"
+                                            id="email"
                                             placeholder="Email Address"
                                         />
                                     </div>
                                     <div className="col-md-6">
                                         <input
+                                            onChange = {(e)=>handle(e)}  
                                             type="number"
-                                            name="phone"
+                                            id="phone"
                                             placeholder="Phone Number"
                                         />
                                     </div>
                                     <div className="col-md-12">
-                                        <input type="text" name="suject" placeholder="Subject" />
+                                        <input onChange = {(e)=>handle(e)}   type="text" id="suject" placeholder="Subject" />
                                     </div>
                                     <div className="col-md-12">
                                         <textarea
-                                            name="message"
+                                            onChange = {(e)=>handle(e)}  
+                                            id="message"
                                             placeholder="How can we help?"
                                         ></textarea>
                                     </div>
