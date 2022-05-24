@@ -13,7 +13,7 @@ function TeamHomeOne() {
             <div className="col-lg-12">
               <div className="appie-section-title text-center">
                 <h3 className="appie-title">Founders</h3>
-                <p>Different layouts and styles for team sections.</p>
+                <p>Meet our Founders.</p>
               </div>
             </div>
           </div>

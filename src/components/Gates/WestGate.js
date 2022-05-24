@@ -19,8 +19,14 @@ function WestGate() {
               //   backgroundColor: "red",
             }}
           >
-            <div style={{ marginBottom: "50px", marginLeft: "20%" }}>
-              <h2> Apartments around WestGate</h2>
+            <div style={{ marginBottom: "50px", marginLeft: "10%" }}>
+              <img
+                src="https://fidelityconcepts.com/wp-content/uploads/2021/04/FUTA-Logo.jpg"
+                alt=""
+              />
+              <div style={{ marginLeft: "15%" }}>
+                <h2> Apartments around WestGate</h2>
+              </div>
             </div>
             <div
               style={{

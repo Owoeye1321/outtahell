@@ -19,8 +19,14 @@ function SouthGate() {
               //   backgroundColor: "red",
             }}
           >
-            <div style={{ marginBottom: "50px", marginLeft: "20%" }}>
-              <h2> Apartments around SouthGate</h2>
+            <div style={{ marginBottom: "50px" }}>
+              <img
+                src="https://2.bp.blogspot.com/-Da9-QIkE5PU/Viqhory90KI/AAAAAAAABvk/UesN9FxbOe4/s1600/IMG_20151003_174137.jpg"
+                alt=""
+              />
+              <div style={{ marginLeft: "20%" }}>
+                <h2> Apartments around SouthGate</h2>
+              </div>
             </div>
             <div
               style={{

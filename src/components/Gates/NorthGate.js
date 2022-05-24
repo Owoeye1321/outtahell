@@ -19,8 +19,17 @@ function NorthGate() {
               //   backgroundColor: "red",
             }}
           >
-            <div style={{ marginBottom: "50px", marginLeft: "20%" }}>
-              <h2> Apartments around NorthGate</h2>
+            <div style={{ marginBottom: "50px" }}>
+              <img
+                src="https://campusreporter.ng/wp-content/uploads/2021/08/FUTA.jpeg"
+                alt=""
+                style={{
+                  justifyContent: "center",
+                }}
+              />
+              <div style={{ marginLeft: "20%" }}>
+                <h2> Apartments around NorthGate</h2>
+              </div>
             </div>
             <div
               style={{

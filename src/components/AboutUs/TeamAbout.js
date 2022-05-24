@@ -12,8 +12,8 @@ function TeamAbout() {
           <div className="row">
             <div className="col-lg-12">
               <div className="appie-section-title text-center">
-                <h3 className="appie-title">Meet our Team Members</h3>
-                <p>Different layouts and styles for team sections.</p>
+                <h3 className="appie-title">Team Members</h3>
+                <p>Meet our Team Members.</p>
               </div>
             </div>
           </div>
