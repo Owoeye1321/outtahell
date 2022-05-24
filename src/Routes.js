@@ -12,6 +12,7 @@ import Signup from "./components/signUp";
 import ForgetPassword from "./components/forgetpassword";
 import SingleNews from "./components/News/SingleNews";
 import Service from "./components/Service";
+import DashBoard from './components/DashBoard'
 
 function Routes() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +45,7 @@ function Routes() {
               <Route exact path="/error" component={Error} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/dashboard" component={DashBoard} />
               <Route component={Error} />
             </Switch>
           </ScrollToTop>

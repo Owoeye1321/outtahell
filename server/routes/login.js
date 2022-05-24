@@ -8,9 +8,8 @@ const con = mysqlConnection.createConnection({
     database: 'c-rentals',
   })
 router.post('/', (req,res)=>{
-   
-            const username = req.body.details.username
-            const password = req.body.details.password
+            const username = req.body.username
+            const password = req.body.password
             const sql = 'SELECT * from users WHERE username = (?) AND password = (?)';
             con.query(sql, [username, password], (err, result) => {
                 if (err) {
@@ -19,7 +18,7 @@ router.post('/', (req,res)=>{
                     res.send('Invalid details')
                   } else {
                     const sess = req.session
-                    sess.user = req.body.details.username
+                    sess.user = req.body.username
                   
                     res.send(
                      'success'
@@ -30,8 +29,5 @@ router.post('/', (req,res)=>{
         })
     
     })
-    
-    
-
 
 module.exports = router

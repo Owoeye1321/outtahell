@@ -1,11 +1,9 @@
+const bodyParser = require('body-parser');
 const express = require('express');
-const port = process.env.PORT || 1000;
 const app = express();
-const cookieparser = require('cookie-parser')
+app.use(express.json())
 const session = require('express-session')
-const bodyParser = require('body-parser')
-app.use(bodyParser.json())
-app.use(cookieparser)
+const PORT = process.env.PORT || 9000
 
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({
@@ -21,10 +19,11 @@ app.use(session({
 app.use('/forgetpassword', require('./routes/forgetpassword'))
 app.use('/login', require('./routes/login'))
 app.use('/signup', require('./routes/signup'))
-app.use('*',( req, res )=>{
-    res.send('<center><h1>404! page not found!</h1></center>')
-})
 
-app.listen(port, ()=>{
-    console.log('listening to port 1000')
-})
+app.all('*',( req, res)=>{
+  res.send('Hello there, you seem to be lost on this server')
+ })
+
+ app.listen(PORT, () => {
+  console.log('Listening to port' + ' ' + PORT)
+})    

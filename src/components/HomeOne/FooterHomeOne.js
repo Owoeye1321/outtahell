@@ -17,7 +17,7 @@ function FooterHomeOne({ className }) {
                               </a>
                 </div>
                 <p>
-                C-rentals is the best real hostel provider you will ever have.
+                C-rentals is the best hostel provider you will ever have.
                 </p>
                
                 <div className="social mt-30">

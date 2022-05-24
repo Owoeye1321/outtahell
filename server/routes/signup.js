@@ -9,12 +9,17 @@ const con = mysqlConnection.createConnection({
     database: 'c-rentals',
   })
 router.post('/',(req, res,next )=>{
+    const details = {
+        email:req.body.email,
+        username:req.body.username,
+        password:req.body.password
+    }
     const validationRule ={
         "email" :"required|email",
         "username":'required|string',
         "password": "required|string|min:6"
     }
-    validator(req.body, validationRule, {}, (err, status)=>{
+    validator(details, validationRule, {}, (err, status)=>{
         if(!status)
         {
             res.json({

@@ -19,7 +19,7 @@ function Login() {
     //         username:data.username,
     //         password:data.password
     //     }
-    //     const response = await axios.post('/login',{details})
+    //     const response = await axios.post('/login',{username:data.username, password:data.password})
     //     if (response){
     //         if(response.data === 'Invalid details')
     //         {
