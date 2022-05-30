@@ -14,13 +14,13 @@ function Navigation() {
           </a>
           <ul className="sub-menu">
             <li>
-              <Link to="/about-us">North Gate</Link>
+              <Link to="/northgate">North Gate</Link>
             </li>
             <li>
-              <Link to="/error">South Gate</Link>
+              <Link to="/southgate">South Gate</Link>
             </li>
             <li>
-              <Link to="/error">West Gate</Link>
+              <Link to="/westgate">West Gate</Link>
             </li>
           </ul>
         </li>
