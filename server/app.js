@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 app.use(express.json())
@@ -19,6 +18,7 @@ app.use(session({
 app.use('/forgetpassword', require('./routes/forgetpassword'))
 app.use('/login', require('./routes/login'))
 app.use('/signup', require('./routes/signup'))
+app.use('/dashboard', require('./routes/contact'))
 
 app.all('*',( req, res)=>{
   res.send('Hello there, you seem to be lost on this server')
