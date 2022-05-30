@@ -17,31 +17,19 @@ function Forms() {
         const newData = {...data}
         newData[e.target.id] = e.target.value
         setData(newData)
-        console.log(newData)
+        console.log(data)
     }
     
-    const submit = async(e)=>{
-      
+    const submit = async(e)=>{      
         e.preventDefault()
-        const result = await axios.post('/signUp',
-        { 
-            username:data.username,
-            password:data.password,
-            email:data.email
-        })
-    if(result.data === "exist"){
-        setColor('blue')
-        setError('User already exist')  
-        console.log(result)
-       }  
-        
-       else if(result.data == "success"){
-           alert("Signed Up Successfully,login to continue")
+        const result = await axios.post('/dashboard',{data})
+   if(result.data == "success"){
+           alert("Email has been sent successfully to C-rentals official")
        // window.location.assign("http://localhost:3000/login")
        }
-       else if (result.data !== "success") {
-        setColor('red')
-        setError('Invalid details')
+       else{
+           alert('An error has occured')
+           alert('An error has occured')
         
     }
     }  
@@ -92,15 +80,15 @@ function Forms() {
                             <div className="contact-form">
                                 <h4>Let’s Connect</h4>
                                 <p>Send us a message to connect with you.</p>
-                                <form className="row" onChange = {(e)=>submit(e)} >
+                                <form className="row" onSubmit = {(e)=>submit(e)} >
                                     <div className="col-md-6">
-                                        <input type="text" onChange = {(e)=>handle(e)}   id="fname" placeholder="First Name" />
+                                        <input required type="text" onChange = {(e)=>handle(e)}   id="fname" placeholder="First Name" />
                                     </div>
                                     <div className="col-md-6">
-                                        <input type="text" onChange = {(e)=>handle(e)}  id="lname" placeholder="Last Name" />
+                                        <input required type="text" onChange = {(e)=>handle(e)}  id="lname" placeholder="Last Name" />
                                     </div>
                                     <div className="col-md-6">
-                                        <input 
+                                        <input required 
                                             onChange = {(e)=>handle(e)}  
                                             type="email"
                                             id="email"
@@ -108,7 +96,7 @@ function Forms() {
                                         />
                                     </div>
                                     <div className="col-md-6">
-                                        <input
+                                        <input required
                                             onChange = {(e)=>handle(e)}  
                                             type="number"
                                             id="phone"
@@ -116,10 +104,11 @@ function Forms() {
                                         />
                                     </div>
                                     <div className="col-md-12">
-                                        <input onChange = {(e)=>handle(e)}   type="text" id="suject" placeholder="Subject" />
+                                        <input required onChange = {(e)=>handle(e)}   type="text" id="subject" placeholder="Subject" />
                                     </div>
                                     <div className="col-md-12">
                                         <textarea
+                                            required        
                                             onChange = {(e)=>handle(e)}  
                                             id="message"
                                             placeholder="How can we help?"
@@ -131,7 +120,7 @@ function Forms() {
                                         </div>
                                     </div>
                                     <div className="col-md-6 text-right">
-                                        <input type="submit" name="submit" value="Send Message" />
+                                        <input type="submit" value="SendMessage" />
                                     </div>
                                 </form>
                             </div>

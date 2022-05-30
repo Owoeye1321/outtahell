@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+import axios from 'axios'
 function Login() {
 	const [error, setError] = useState('')
     const [data, setData ] = useState({
@@ -10,32 +11,31 @@ function Login() {
         const newData = {...data}
         newData[e.target.id] = e.target.value
         setData(newData)
-        console.log(newData)
     }
 
-    // const submit = async (e)=>{
-    //     e.preventDefault()
-    //     const details = {
-    //         username:data.username,
-    //         password:data.password
-    //     }
-    //     const response = await axios.post('/login',{username:data.username, password:data.password})
-    //     if (response){
-    //         if(response.data === 'Invalid details')
-    //         {
-    //             setError('invalid details')
-    //             console.log(response)
+    const submit = async (e)=>{
+        e.preventDefault()
+        const details = {
+            username:data.username,
+            password:data.password
+        }
+        const response = await axios.post('/login',{username:data.username, password:data.password})
+        if (response){
+            if(response.data === 'invalid')
+            {
+                setError('invalid details')
+                console.log(response.data)
                 
-    //         }
-    //        if (response.data == 'success') {
+            }
+           if (response.data === 'success') {
                
-    //                 alert('Welcome '+ details.username)
-    //                 //window.location.assign("http://localhost:3000/cart")
+                    alert('Welcome '+ details.username)
+                    window.location.assign("http://localhost:3000/dashboard")
               
-    //         } 
-    //     }   
+            } 
+        }   
         
-    // }
+    }
 
 
 	
@@ -48,15 +48,18 @@ function Login() {
                 <div className='col-sm-12 col-md-6 col-lg-4' style = {{padding:'150px 50px 50px 50px'}}>
 	                
 	                        <h4 className="mb-3">Login</h4>
-	                        <form>
+	                        <form onSubmit = {(e)=>submit(e)} >
 	                            <div className="form-group">
 	                                <label>Username</label>
-	                                <input onChange = {(e)=>handle(e)} type="text"  id="email" className="form-control"/>
+	                                <input onChange = {(e)=>handle(e)} type="text"  id="username" className="form-control"/>
 	                            </div>
 	                            <div className="form-group">
 	                                <label>Password</label>
 	                                <input onChange = {(e)=>handle(e)} type="password" id="password" className="form-control"/>
 	                            </div>
+                                <div  style ={{fontSize: '10px',marginBottom: '0px'}}>
+                                    <center><i style={{marginBottom:"-1px",color:'red'}}>{error}</i></center>
+                                </div>
 	                            <div className="clearfix mb-3">
 	                                <div className="float-left">
                                     <i style={{fontSize:'13px'}}>Don't have an account? <a href="/signup">Sign Up</a></i>
@@ -66,9 +69,6 @@ function Login() {
 	                                </div>
 	                            </div>
 	                            <input type= 'submit' className = 'form-control success mb-3'  />
-								<div  style ={{fontSize: '10px',marginBottom: '0px'}}>
-                                <i style={{marginBottom:"-1px",color:'red'}}>{error}</i>
-                                </div>
 	                        </form>
 	            
                         <center>© 2021 FUTA PROJECT - All Rights Reserved.</center>
