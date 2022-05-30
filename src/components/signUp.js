@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+import axios from 'axios'
 function Login() {
 
     const [color, setColor ] =useState('green')
@@ -17,33 +18,34 @@ function Login() {
         const newData = {...data}
         newData[e.target.id] = e.target.value
         setData(newData)
+        console.log(data)
     }
     
-    // const submit = async(e)=>{
+    const submit = async(e)=>{
       
-    //     e.preventDefault()
-    //     const result = await axios.post('/signUp',
-    //     { 
-    //         username:data.username,
-    //         password:data.password,
-    //         email:data.email
-    //     })
-    // if(result.data === "exist"){
-    //     setColor('blue')
-    //     setError('User already exist')  
-    //     console.log(result)
-    //    }  
+        e.preventDefault()
+        const result = await axios.post('/signUp',
+        { 
+            username:data.username,
+            password:data.password,
+            email:data.email
+        })
+    if(result.data === "exist"){
+        setColor('blue')
+        setError('User already exist')  
+        console.log(result.data)
+       }  
         
-    //    else if(result.data == "success"){
-    //        alert("Signed Up Successfully,login to continue")
-    //    // window.location.assign("http://localhost:3000/login")
-    //    }
-    //    else if (result.data !== "success") {
-    //     setColor('red')
-    //     setError('Invalid details')
+       else if(result.data === "success"){
+           alert("Signed Up Successfully, best wishes")
+       window.location.assign("http://localhost:3000/dashboard")
+       }
+       else {
+        setColor('red')
+        setError('Invalid details')
         
-    // }
-    // }       
+    }
+    }       
 
     return (
         <div>
@@ -53,20 +55,19 @@ function Login() {
                 </div>
                 <div className='col-sm-12 col-md-6 col-lg-4' style = {{padding:'50px 50px 50px 50px'}}>
                 <h4 className="mb-3">Sign Up</h4>
-	                        <form >
+	                        <form  onSubmit={(e)=>{submit(e)}}>
 								<div className="form-group mb-4">
-	                                <input type="text"  id="username" placeholder='Full name' className="form-control"/>
+	                                <input type="text"  onChange = {(e)=>handle(e)}  id="username" placeholder='Full name' className="form-control"/>
 	                            </div>
 	                            <div className="form-group mb-4">
 	                                <input onChange = {(e)=>handle(e)}  type="email" placeholder='Email address'  id="email" className="form-control"/>
 	                            </div>
-	                            <div className="form-group mb-4">
-	                                <input onChange = {(e)=>handle(e)} type="password"  placeholder='password' id="password1" className="form-control"/>
+	                            <div className="form-group mb-2">
+	                                <input onChange = {(e)=>handle(e)} type="password"  placeholder='password' id="password" className="form-control"/>
 	                            </div>
-	                            <div className="form-group mb-4" >
-	                                <input onChange = {(e)=>handle(e)} type="password" placeholder='Comfirm Password'  id="password2" className="form-control"/>
-	                            </div>
-	                            <div id="pass-info" className="clearfix"></div>
+                                <div  style ={{fontSize: '10px',marginBottom: '0px'}}>
+                                    <center><i style={{marginBottom:"-1px",color:'red'}}>{error}</i></center>
+                                </div>
                                 <input type= 'submit' className = 'form-control success mb-3'  value='Sign Up'/>
 	                        </form>
 	                        <p className="text-center mt-3 mb-0">Already have an account? <a href="/login">Sign In</a></p>
