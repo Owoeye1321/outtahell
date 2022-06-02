@@ -3,7 +3,7 @@ import userProfile from "../../assets/images/user.png";
 import logo from "../../assets/images/see.svg";
 
 function UserProfile() {
-  const [Profile, setProfile] = useState([]);
+  const [profileImage, setProfileImage] = useState('');
   return (
     <>
       <section
@@ -55,7 +55,7 @@ function UserProfile() {
                   <center> 
                     <label style={{ width: '100%' }}>
                     <img
-                    src={userProfile}
+                    src= { profileImage ? profileImage : userProfile }
                     style={{ height: "80px", width: "80px" }}
                   />
                         <input
