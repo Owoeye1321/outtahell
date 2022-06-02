@@ -13,6 +13,7 @@ import ForgetPassword from "./components/forgetpassword";
 import SingleNews from "./components/News/SingleNews";
 import Service from "./components/Service";
 import DashBoard from "./components/DashBoard";
+import Profile from "./components/Profile";
 import NorthGate from "./components/Gates/NorthGate";
 import WestGate from "./components/Gates/WestGate";
 import SouthGate from "./components/Gates/SouthGate";
@@ -52,6 +53,7 @@ function Routes() {
               <Route exact path="/northgate" component={NorthGate} />
               <Route exact path="/westgate" component={WestGate} />
               <Route exact path="/southgate" component={SouthGate} />
+              <Route exact path="/profile" component={Profile} />
               <Route component={Error} />
             </Switch>
           </ScrollToTop>
