@@ -43,6 +43,31 @@ function UserProfile() {
                   </figure>
                 </center>
                 <form enctype="multipart/form-data">
+                <div
+                  style={{
+                    backgroundColor: "white",
+                    height: "120px",
+                    width: "100%",
+                    borderRadius: "50%",
+                  }}
+                  className="py-3"
+                >
+                  <center> 
+                    <label style={{ width: '100%' }}>
+                    <img
+                    src={userProfile}
+                    style={{ height: "80px", width: "80px" }}
+                  />
+                        <input
+                        style={{display:'none'}}
+                          required
+                          id="profilePicture"
+                          type="file"
+                          name="file"
+                        />
+                      </label>
+                  </center>
+                </div>
                   <div class="form-group">
                     <input
                       className="form-control"

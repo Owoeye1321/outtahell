@@ -106,8 +106,8 @@ function Admin() {
                       </strong>
                     </figure>
                   </center>
-                  <form enctype="multipart/form-data">
-                    <div class="form-group">
+                  <form >
+                    <div className="form-group">
                       <input
                         className="form-control"
                         type="text"
@@ -115,7 +115,7 @@ function Admin() {
                         id="hostel_name"
                       />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                       <input
                         className="form-control"
                         type="text"
@@ -123,7 +123,7 @@ function Admin() {
                         id="address"
                       />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                       <textarea
                         className="form-control"
                         required
@@ -136,17 +136,17 @@ function Admin() {
                       />
                     </div>
 
-                    <div class="form-group">
+                    <div className="form-group">
                       <p>Upload Image</p>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                       <input
                         type="file"
                         id="hostel_images"
                         className="form-control"
                       />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                       <input
                         type="submit"
                         value="submit"
