@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 import userProfile from "../../assets/images/user.png";
 import logo from "../../assets/images/see.svg";
 
@@ -54,17 +54,22 @@ function Admin() {
                 <i>
                   {" "}
                   click{" "}
-                  <a href="/#" style={{ color: "white" }}>
-                    here
-                  </a>{" "}
+                  <Link to="/profile" style={{ color: "white" }}>
+                    <input
+                      type="submit"
+                      value="here"
+                      className="form-control bg-primary"
+                      style={{ color: "white", backgroundColor: "white" }}
+                    />
+                  </Link>{" "}
                   to edit profile
                 </i>
                 <i className="my-4">
                   {" "}
                   Check{" "}
-                  <a href="/#" style={{ color: "white" }}>
+                  <Link to="/profile" style={{ color: "white" }}>
                     here
-                  </a>{" "}
+                  </Link>{" "}
                   to view gallery
                 </i>
               </div>
