@@ -1,10 +1,40 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import userProfile from "../../assets/images/user.png";
 import logo from "../../assets/images/see.svg";
+import axios from "axios";
 
 function Admin() {
   const [userDetails, setUserDetails] = useState([]);
+
+  useEffect(()=>{
+    const response = async ()=>{
+        let check = await axios.get('/check');
+        if(check.data ==='failed') window.location.assign('http://localhost:3000/login')
+        console.log(check.data)
+    }
+    response()
+
+     const fetchAll = async () =>{
+        const result = await axios.get('/read')
+        if(result.data.length){
+            setUserDetails(result.data)
+        }else{
+            console.log('Invalid data')
+        }
+
+     }
+     fetchAll()
+        const interval = setInterval (()=>{
+            fetchAll()
+        },60000)
+
+        return()=>{
+                clearInterval(interval)
+        }
+    
+},[])
+
   return (
     <>
       <section
@@ -22,34 +52,42 @@ function Admin() {
                 background: "#1f75fe",
               }}
             >
-              <center>
-                <div
-                  style={{
-                    backgroundColor: "white",
-                    height: "120px",
-                    width: "140px",
-                    borderRadius: "50%",
-                  }}
-                  className="py-3"
-                >
-                  <img
-                    src={userProfile}
-                    style={{ height: "80px", width: "80px" }}
+           
+             
+                 { userDetails ? userDetails.map((key)=>{
+                   return(
+                    
+                    <div key={key._id}>
+                  <center>
+                    <div
+                    style={{
+                      backgroundColor: "white",
+                      height: "120px",
+                      width: "140px",
+                      borderRadius: "50%",
+                    }}
+                    className="py-3"
+                  >
+                   
+                    <img
+                    src={key.imageName}
+                    style={{ height: "90px", width: "90px" }}
                   />
+                  
                 </div>
-              </center>
-              <div className="p-3 mt-5" style={{ color: "white" }}>
+                </center>
+                <div className=" mt-5" style={{ color: "white" }}>
                 <p className="mb-5" style={{ color: "white" }}>
-                  Name:
+                  Name: {key.username}
                 </p>
                 <p className="mb-5" style={{ color: "white" }}>
-                  Email:
+                  Email: {key.email}
                 </p>
                 <p className="mb-5" style={{ color: "white" }}>
-                  Phone:
+                  Phone: {key.phone}
                 </p>
                 <p className="mb-5" style={{ color: "white" }}>
-                  Address:
+                  Address: {key.address}
                 </p>
                 <i>
                   {" "}
@@ -73,6 +111,33 @@ function Admin() {
                   to view gallery
                 </i>
               </div>
+                </div>
+               
+                   )
+                }) :  
+                <center>
+                <div
+                style={{
+                  backgroundColor: "white",
+                  height: "120px",
+                  width: "140px",
+                  borderRadius: "50%",
+                }}
+                className="py-3"
+              >
+               
+                <img
+                src={userProfile}
+                style={{ height: "90px", width: "90px" }}
+              />
+              
+            </div>
+            </center>
+                
+              
+              }
+           
+            
             </div>
           </div>
           <div className="col-sm-12 col-md-8 col-lg-9 p-4">
