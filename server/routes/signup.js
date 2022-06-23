@@ -7,6 +7,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 router.post('/',(req, res) =>{
+   console.log(req.body)
    const sess = req.session
       const username = req.body.username
      const email = req.body.email
