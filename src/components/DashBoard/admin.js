@@ -19,6 +19,7 @@ function Admin() {
         const result = await axios.get('/read')
         if(result.data.length){
             setUserDetails(result.data)
+
         }else{
             console.log('Invalid data')
         }
@@ -27,13 +28,14 @@ function Admin() {
      fetchAll()
         const interval = setInterval (()=>{
             fetchAll()
-        },60000)
+        },10000)
 
         return()=>{
                 clearInterval(interval)
         }
     
 },[])
+console.log(userDetails)
 
   return (
     <>
