@@ -1,8 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { motion } from 'framer-motion/dist/framer-motion'
 
 function Login() {
     return (
-        <div>
+        <motion.div
+        initial = {{opacity: 0 }}
+        animate = {{opacity: 1 }}
+        exit = {{ opacity: 0 }}
+        >
             <div className='row'>
                 <div className='col-sm-12 col-md-4 col-lg-4'>
 
@@ -30,7 +35,7 @@ function Login() {
                 
 
             </div>
-        </div>
+        </motion.div>
     );
 }
 

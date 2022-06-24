@@ -3,11 +3,16 @@ import useToggle from "../../Hooks/useToggle";
 import HomeOneHeader from "../HomeOne/HomeOneHeader";
 import Drawer from "../Mobile/Drawer";
 import "./NorthGate.css";
+import { motion } from 'framer-motion/dist/framer-motion'
 
 function NorthGate() {
   const [drawer, drawerAction] = useToggle(false);
   return (
-    <>
+    <motion.div
+    initial = {{width: 0 }}
+    animate = {{width: "100%" }}
+    exit = {{ x: window.innerWidth, transition:{duration: 0.1} }}
+    >
       <Drawer drawer={drawer} action={drawerAction.toggle} />
       <HomeOneHeader action={drawerAction.toggle} />
       <section className="appie-hero-area">
@@ -48,7 +53,7 @@ function NorthGate() {
           </div>
         </div>
       </section>
-    </>
+    </motion.div>
   );
 }
 

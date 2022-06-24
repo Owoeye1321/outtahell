@@ -7,6 +7,7 @@ import Drawer from '../Mobile/Drawer';
 import DetailsService from './DetailsService';
 import HeaderService from './HeaderService';
 import HeroService from './HeroService';
+import { motion } from "framer-motion/dist/framer-motion"
 
 function Service() {
     useEffect(() => {
@@ -14,14 +15,18 @@ function Service() {
     });
     const [drawer, drawerAction] = useToggle(false);
     return (
-        <>
+        <motion.div
+        initial = {{width: 0 }}
+        animate = {{width: "100%" }}
+        exit = {{ x: window.innerWidth, transition:{duration: 0.1} }}
+        >
             <Drawer drawer={drawer} action={drawerAction.toggle} />
             <HeaderService action={drawerAction.toggle} />
             <HeroService />
             <DetailsService />
             <FooterHomeOne />
             <BackToTop />
-        </>
+        </motion.div>
     );
 }
 

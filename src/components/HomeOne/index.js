@@ -9,12 +9,17 @@ import HomeOneHeader from "./HomeOneHeader";
 import ServicesHomeOne from "./ServicesHomeOne";
 import TestimonialHomeOne from "./TestimonialHomeOne";
 import TrafficHomeOne from "./TrafficHomeOne";
+import { motion } from "framer-motion/dist/framer-motion"
 
 function HomeOne() {
   const [drawer, drawerAction] = useToggle(false);
 
   return (
-    <>
+    <motion.div
+    initial = {{width: 0 }}
+    animate = {{width: "100%" }}
+    exit = {{ x: window.innerWidth, transition:{duration: 0.1} }}
+    >
       <Drawer drawer={drawer} action={drawerAction.toggle} />
       <HomeOneHeader action={drawerAction.toggle} />
       <HeroHomeOne />
@@ -24,7 +29,7 @@ function HomeOne() {
       <FaqHomeOne />
       <FooterHomeOne />
       <BackToTop />
-    </>
+    </motion.div>
   );
 }
 
