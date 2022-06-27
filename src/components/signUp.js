@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import axios from "axios";
+import { motion } from 'framer-motion/dist/framer-motion'
 function Login() {
   const [color, setColor] = useState("green");
   const [data, setData] = useState({
@@ -39,7 +40,11 @@ function Login() {
   };
 
   return (
-    <div>
+    <motion.div
+    initial = {{opacity: 0 }}
+    animate = {{opacity: 1 }}
+    exit = {{ opacity: 0 }}
+    >
       <div className="row">
         <div className="col-sm-12 col-md-3 col-lg-4"></div>
         <div
@@ -116,7 +121,7 @@ function Login() {
 
         <div className="col-sm-12 col-md-6 col-lg-4"></div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

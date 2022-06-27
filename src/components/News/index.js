@@ -7,11 +7,16 @@ import Blogs from './Blogs';
 import BlogSideBar from './BlogSideBar';
 import HeaderNews from './HeaderNews';
 import HeroNews from './HeroNews';
+import { motion } from 'framer-motion/dist/framer-motion'
 
 function News() {
     const [drawer, drawerAction] = useToggle(false);
     return (
-        <>
+        <motion.div 
+        initial = {{opacity: 0 }}
+        animate = {{opacity: 1 }}
+        exit = {{ opacity: 0 }}
+        >
             <Drawer drawer={drawer} action={drawerAction.toggle} />
             <HeaderNews action={drawerAction.toggle} />
             <HeroNews
@@ -35,7 +40,7 @@ function News() {
             </section>
             <FooterHomeOne />
             <BackToTop />
-        </>
+        </motion.div>
     );
 }
 

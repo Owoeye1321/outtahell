@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import axios from "axios";
+=======
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import axios from 'axios'
+import { motion }  from 'framer-motion/dist/framer-motion'
+>>>>>>> 4da28fb9f4c6f4120b02771001684aceee35b89a
 function Login() {
   const [error, setError] = useState("");
   const [data, setData] = useState({
@@ -35,6 +42,7 @@ function Login() {
     }
   };
 
+<<<<<<< HEAD
   return (
     <div>
       <div className="row">
@@ -94,6 +102,82 @@ function Login() {
       </div>
     </div>
   );
+=======
+    const submit = async (e)=>{
+        e.preventDefault()
+        const details = {
+            username:data.username,
+            password:data.password
+        }
+        const response = await axios.post('/login',{username:data.username, password:data.password})
+        if (response){
+            if(response.data === 'invalid')
+            {
+                setError('invalid details')
+                console.log(response.data)
+                
+            }
+           if (response.data === 'success') {
+               
+                    alert('Welcome '+ details.username)
+                    window.location.assign("http://localhost:3000/dashboard")
+              
+            } 
+        }   
+        
+    }
+
+
+	
+    return (
+        <motion.div
+        initial = {{opacity: 0 }}
+        animate = {{opacity: 1 }}
+        exit = {{ opacity: 0 }}
+        >
+            <div className='row'>
+                <div className='col-sm-12 col-md-3 col-lg-4'>
+
+                </div>
+                <div className='col-sm-12 col-md-6 col-lg-4' style = {{padding:'150px 50px 50px 50px'}}>
+	                
+	                        <h4 className="mb-3">Login</h4>
+	                        <form onSubmit = {(e)=>submit(e)} >
+	                            <div className="form-group">
+	                                <label>Username</label>
+	                                <input onChange = {(e)=>handle(e)} type="text"  id="username" className="form-control"/>
+	                            </div>
+	                            <div className="form-group">
+	                                <label>Password</label>
+	                                <input onChange = {(e)=>handle(e)} type="password" id="password" className="form-control"/>
+	                            </div>
+                                <div  style ={{fontSize: '10px',marginBottom: '0px'}}>
+                                    <center><i style={{marginBottom:"-1px",color:'red'}}>{error}</i></center>
+                                </div>
+	                            <div className="clearfix mb-3">
+	                                <div className="float-left">
+                                    <i style={{fontSize:'13px'}}>Don't have an account? <a href="/signup">Sign Up</a></i>
+	                                </div>
+	                                <div className="float-right">
+	                                    <a  style={{fontSize:'13px'}}id="forgot" href="/forgetpassword">Forgot Password?</a>
+	                                </div>
+	                            </div>
+	                            <input type= 'submit' className = 'form-control success mb-3'  />
+	                        </form>
+	            
+                        <center>© 2021 FUTA PROJECT - All Rights Reserved.</center>
+                        </div>
+
+        
+                <div className='col-sm-12 col-md-3 col-lg-4'>
+
+                </div>
+                
+
+            </div>
+        </motion.div>
+    );
+>>>>>>> 4da28fb9f4c6f4120b02771001684aceee35b89a
 }
 
 export default Login;
