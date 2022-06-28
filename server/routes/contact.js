@@ -1,7 +1,4 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-const uri = process.env.ATLAS_URI
 
-const { MongoClient, ServerApiVersion } = require('mongodb')
       const router = require('express').Router()
       const nodemailer = require('nodemailer')
 

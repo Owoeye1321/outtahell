@@ -1,12 +1,8 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-const uri = process.env.ATLAS_URI
-
-const { MongoClient, ServerApiVersion } = require('mongodb')
    const validator = require('../controller/validator')
       const router = require('express').Router()
-   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+       const client = require('../controller/client')   
 
-router.post('/',(req, res) =>{
+router.post('/',async (req, res) =>{
    console.log(req.body)
    const sess = req.session
       const username = req.body.username
@@ -33,18 +29,24 @@ router.post('/',(req, res) =>{
           data:{err}
      })
      }else{
-
-client.connect(async err => {
-   console.log('mongodb database connected successfully')
-      const collection = client.db("c_rentals").collection("users");
+      
+      const signUp = async()=>{
+         const collection = client.db("c_rentals").collection("users");
          const check = await collection.findOne({username:username})
          if(check){
             res.send('exist')
             console.log('user already exist')
          }else{
-
+ 
             const result  = await collection.insertOne({username:username, email:email, password:password})
             if(result){
+               const collection = client.db("c_rentals").collection("admin_profile")
+               const resultProfile = await collection.insertOne({username:username, email:email, password:password})
+               if (resultProfile) {
+                  console.log('added a new profile')
+               } else {
+                  console.log('unable to add a new profile')
+               }
                    sess.username = username
                       console.log('user saved')
                  res.send('success')
@@ -55,9 +57,9 @@ client.connect(async err => {
             }
          }
 
-
-      client.close();
-      });
+     
+      }
+      signUp()
   
      }
   })

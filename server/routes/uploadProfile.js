@@ -1,9 +1,4 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-const uri = process.env.ATLAS_URI
-
-const { MongoClient, ServerApiVersion } = require('mongodb')
-   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-
+const client = require('../controller/client')   
     const router = require('express').Router()
     const path = require('path')
     const formidable = require('formidable');
@@ -72,8 +67,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
                                       const imageName = "../../assets/hostel_images/" + files.file.originalFilename
                                       const email =  data.email
                                       const address = data.address
-                                      client.connect(async err => {
-                                        console.log('mongodb database connected successfully')
                                         const collection = client.db("c_rentals").collection("admin_profile");
                                           const updateOne = await collection.updateOne({username:username},
                                             {$set:{imageName:imageName, email:email, address:address, phone:phone}})
@@ -97,8 +90,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
                                             }
 
                                        
-                                        });
-                                     
                                     }
                                   })
                                   

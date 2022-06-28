@@ -1,16 +1,12 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-const uri = process.env.ATLAS_URI
-
 const router = require('express').Router()
 const nodemailer = require('nodemailer')
-const { MongoClient, ServerApiVersion } = require('mongodb')
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const client = require('../controller/client')   
 
-router.post('/', ( req, res ) =>{
+
+router.post('/',async ( req, res ) =>{
 
 const getMail = req.body.email
 
-client.connect(async err => {
     console.log('mongodb database connected successfully')
        const collection = client.db("c_rentals").collection("users");
          const result  = await collection.findOne({email:getMail})
@@ -66,8 +62,7 @@ client.connect(async err => {
                                     console.log('unable to get Email informations, the email provided is not a valid email')
                                 }
  
-       client.close();
-       });
+      
 
 })
 

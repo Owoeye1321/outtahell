@@ -49,8 +49,7 @@ function Login() {
         <div className="col-sm-12 col-md-3 col-lg-4"></div>
         <div
           className="col-sm-12 col-md-6 col-lg-4"
-          style={{ padding: "50px 50px 50px 50px" }}
-        >
+          style = {{padding:'150px 50px 50px 50px'}}>
           <h4 className="mb-3">Sign Up</h4>
           <form
             onSubmit={(e) => {
@@ -75,24 +74,7 @@ function Login() {
                 className="form-control"
               />
             </div>
-            <div className="form-group mb-4">
-              <input
-                onChange={(e) => handle(e)}
-                type="phone"
-                placeholder="Phone No"
-                id="phone"
-                className="form-control"
-              />
-            </div>
-            <div className="form-group mb-4">
-              <input
-                onChange={(e) => handle(e)}
-                type="address"
-                placeholder="Address"
-                id="address"
-                className="form-control"
-              />
-            </div>
+        
             <div className="form-group mb-2">
               <input
                 onChange={(e) => handle(e)}
