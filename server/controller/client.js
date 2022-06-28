@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV !== "production") require('dotenv').config();
-   const uri = process.env.ATLAS_URI
+   const uri = process.env.ATLAS_URI_FOR_OWOEYE
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
