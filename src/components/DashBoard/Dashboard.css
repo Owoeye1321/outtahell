@@ -1,0 +1,13 @@
+.test {
+    background-color: #1f75fe;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px
+}
+
+@media only screen and (max-width: 600px) {
+  .test {
+    background-color: lightblue;
+    display: none !important;
+  }
+}
