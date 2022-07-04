@@ -21,6 +21,7 @@ function Login() {
             username:data.username,
             password:data.password
         }
+        console.log(details)
         const response = await axios.post('/login',{username:data.username, password:data.password})
         if (response){
             if(response.data === 'invalid')
