@@ -7,6 +7,14 @@ import axios from "axios";
 function Admin() {
   const [userDetails, setUserDetails] = useState([]);
 
+  const LogOut = async()=>{
+    alert('logging out')
+    const logUserOut = await axios.get('/logOut')
+    if(logUserOut.data === "success"){
+      window.location.assign('http://localhost:3000/login')
+    }
+  }
+
   useEffect(()=>{
     const response = async ()=>{
         let check = await axios.get('/check');
@@ -27,6 +35,7 @@ function Admin() {
      }
      fetchAll()
         const interval = setInterval (()=>{
+          response()
             fetchAll()
         },10000)
 
@@ -113,6 +122,8 @@ console.log(userDetails)
                   </Link>{" "}
                   to view gallery
                 </i>
+                <br></br>
+                <strong  onClick={()=>{LogOut()}}  >LogOut</strong>
               </div>
                 </div>
                
