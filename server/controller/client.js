@@ -8,7 +8,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
             console.log('mongodb database connected successfully')
 
         });
-        client.close()
 
 
 module.exports = client
