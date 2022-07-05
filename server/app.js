@@ -30,6 +30,7 @@ app.use("/adminProfile", require("./routes/uploadProfile"));
 app.use("/check", require("./routes/check"));
 app.use("/read", require("./routes/readProfile"));
 app.use('/logOut', require('./routes/logOut'))
+app.use('/addHostelDetails', require('./routes/addHostelDetails'))
 
 app.all("*", (req, res) => {
   res.send("Hello there, you seem to be lost on this server");
