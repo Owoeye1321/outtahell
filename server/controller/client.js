@@ -5,6 +5,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
         client.connect( async err => {
+            client.db("c_rentals")
             console.log('mongodb database connected successfully')
 
         });

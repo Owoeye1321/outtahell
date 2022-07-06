@@ -5,6 +5,7 @@ const client = require('../controller/client')
     const validator = require('../controller/validator')
     const { isValidPhone } = require('phone-validation')
     const fs = require('fs')
+    const imageModel = require('../model/imageModel')
 
 
     router.post('/',(req, res, next)=>{
@@ -64,52 +65,52 @@ const client = require('../controller/client')
                                       console.log('An error has occured uploading file')
                                       console.log(err)
                                     }else{
-                                      const imageName = "../../assets/hostel_images/" + files.file.originalFilename
-                                      const email =  data.email
-                                      const address = data.address
-                                        const collection = client.db("c_rentals").collection("admin_profile");
-                                          const updateOne = await collection.updateOne({username:username},
-                                            {$set:{imageName:imageName, email:email, address:address, phone:phone}})
-                                            if(updateOne){
-                                              res.send('success')
-                                              console.log('Process completed')
-                                              console.log('Updated profile successfully')
-                                            }else{
-                                              const result  = await collection.insertOne({imageName:imageName,username:username, email:email, address:address, phone:phone})
-                                              if(result){
-                                                   res.send('success')
-                                                      console.log('Profile saved to database')
-                                                      console.log('Process completed')
-                                                      console.log('Uploaded file successfully')
-                                                   
-                                              }else{
-                                                 res.send('error')
-                                                 console.log('unable to save new user')
-                                              }
-                                          
+                                     // const imageName = "../../assets/hostel_images/" + files.file.originalFilename
+                                     const imageData =  new imageModel( {
+                                          email :  data.email,
+                                          phone : phone,
+                                          address : data.address,
+                                            image : {
+                                              data: fs.readFileSync(path.resolve('../src/assets/hostel_images' , files.file.originalFilename)),
+                                              contentType: 'image/png'
                                             }
-
-                                       
+                                     })
+                                             const uploadProfile = await imageData.save()
+                                             if(uploadProfile){
+                                              
+                                             }
+                                          // const updateOne = await collection.updateOne({username:username},
+                                          //   {$set:{imageName:imageName, email:email, address:address, phone:phone}})
+                                          //   if(updateOne){
+                                          //     res.send('success')
+                                          //     console.log('Process completed')
+                                          //     console.log('Updated profile successfully')
+                                          //   }else{
+                                          //     const result  = await collection.insertOne({imageName:imageName,username:username, email:email, address:address, phone:phone})
+                                          //     if(result){
+                                          //          res.send('success')
+                                          //             console.log('Profile saved to database')
+                                          //             console.log('Process completed')
+                                          //             console.log('Uploaded file successfully')
+                                                   
+                                          //     }else{
+                                          //        res.send('error')
+                                          //        console.log('unable to save new user')
+                                          //     }
+                                          
+                                          //   }
                                     }
                                   })
-                                  
-                                 
                               }
-            
-            
                           console.log(files.file.filepath)
                       
                         }else{
                           res.send('error')
                           console.log('Invalid phone number')
                         }
-                  
-                       
-                    
                        }
                     })
                     }
-            
         })
       }else{
         console.log('Invalid form')
