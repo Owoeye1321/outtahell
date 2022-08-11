@@ -4,9 +4,14 @@
 const mongoose = require('mongoose');
   
 const imageSchema = new mongoose.Schema({
+            username: String,
             email: String,
+            address:
+             {
+                type: String,
+                max:200
+            },
             phone: String,
-            address: String,
             image:
             {
                 data: Buffer,
@@ -16,4 +21,4 @@ const imageSchema = new mongoose.Schema({
   
 //Image is a model which has a schema imageSchema
   
-module.exports = new mongoose.model('Image', imageSchema, "admin_profile");
+module.exports = profileModel = mongoose.model('admin_profile', imageSchema);
