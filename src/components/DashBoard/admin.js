@@ -4,8 +4,22 @@ import userProfile from "../../assets/images/user.png";
 import logo from "../../assets/images/see.svg";
 import axios from "axios";
 
+
 function Admin() {
+
   const [userDetails, setUserDetails] = useState([]);
+  const [addHostelDetails, setAddHostelDetails] = useState({
+    hostel_name:'',
+    address:'',
+    socialAmenities:''
+  });
+  const [hostelPicture, setHostelPicture] = useState('')
+
+    //// performing some dangerous operation round around the spagetti environment
+    const [pickFirst , setPickFirst] = useState('block')
+    const [pickSecond , setPickSecond] = useState('none')
+    const [pickThird, setPickThird] = useState('block')
+    const [pickFourth, setPickFourth] = useState('none')
 
   const LogOut = async()=>{
     alert('logging out')
@@ -14,8 +28,36 @@ function Admin() {
       window.location.assign('http://localhost:3000/login')
     }
   }
+  const handleSubmit = async (e)=>{
+    e.preventDefault()
+    console.log(hostelPicture)
+    const addForm = new FormData()
+    addForm.append('data', JSON.stringify(addHostelDetails))
+    addForm.append('file',hostelPicture)
+    console.log(addForm)
+    const checkingFormUpdates = await axios.post('/addHostelDetails',addForm)
+    if(checkingFormUpdates.data === 'success'){ 
+      console.log('Hostel information saved successfully')
+      alert('Hostel information saved successfully')
+    }
+  } 
+
+    const handleChange = (e)=>{
+      const addNewData = { ...addHostelDetails }
+      addNewData[e.target.id]= e.target.value
+      setAddHostelDetails(addNewData)
+      console.log(addHostelDetails)
+    }
+    const addHostelPicture = (e)=>{
+      let name = e.target.files[0]
+      setHostelPicture(name)
+      console.log(hostelPicture)
+
+    }
 
   useEffect(()=>{
+    // alert('hello there i am trying to control the width of the screen')
+    // alert(window.width)
     const response = async ()=>{
         let check = await axios.get('/check');
         if(check.data ==='failed') window.location.assign('http://localhost:3000/login')
@@ -24,21 +66,19 @@ function Admin() {
     response()
 
      const fetchAll = async () =>{
-        const result = await axios.get('/read')
-        if(result.data.length){
-            setUserDetails(result.data)
-
-        }else{
-            console.log('Invalid data')
-        }
+      await axios.get('/read').then((res)=>{
+        setUserDetails(res.data)
+        console.log(res.data)
+      }).catch((err)=>{
+        console.log('An error has occured' , err)
+      })
 
      }
      fetchAll()
         const interval = setInterval (()=>{
           response()
             fetchAll()
-        },10000)
-
+        },100000)
         return()=>{
                 clearInterval(interval)
         }
@@ -63,16 +103,19 @@ console.log(userDetails)
                 background: "#1f75fe",
               }}
             >
-           
-             
-                 { userDetails.length ? userDetails.map((key)=>{
+       { userDetails.length ? userDetails.map((key)=>{
+        
+              const blob = new Blob([Int8Array.from(key.image.data.data)], {type: key.image.contentType });
+                 const image = window.URL.createObjectURL(blob);
+                  // const base64String = btoa(
+                  //   String.fromCharCode(...new Uint8Array((key.image.data.data)))
+                  // )
                    return(
                     
                     <div key={key._id}>
                   <center>
                     <div
                     style={{
-                      backgroundColor: "white",
                       height: "120px",
                       width: "140px",
                       borderRadius: "50%",
@@ -81,11 +124,11 @@ console.log(userDetails)
                   >
                    
                     <img
-                    src={key.imageName}
-                    alt = "ProfileImage"
-                    style={{ height: "90px", width: "90px" }}
+                    src={image}
+                    alt = "profile Image"
+                    style={{ height: "120px", width: "120px", borderRadius:"40px" }}
                   />
-                  
+                 
                 </div>
                 </center>
                 <div className=" mt-5" style={{ color: "white" }}>
@@ -117,13 +160,13 @@ console.log(userDetails)
                 <i className="my-4">
                   {" "}
                   Check{" "}
-                  <Link to="/profile" style={{ color: "white" }}>
+                  <Link to="/personalDiary" style={{ color: "white" }}>
                     here
                   </Link>{" "}
                   to view gallery
                 </i>
                 <br></br>
-                <strong  onClick={()=>{LogOut()}}  >LogOut</strong>
+                <strong  onClick={()=>{LogOut()}}>LogOut</strong>
               </div>
                 </div>
                
@@ -180,7 +223,7 @@ console.log(userDetails)
              <i className="my-4">
                {" "}
                Check{" "}
-               <Link to="/profile" style={{ color: "white" }}>
+               <Link to="/personalDiary" style={{ color: "white" }}>
                  here
                </Link>{" "}
                to view gallery
@@ -225,17 +268,24 @@ console.log(userDetails)
                       </strong>
                     </figure>
                   </center>
-                  <form >
+                  <form 
+                  onSubmit={(e)=>{handleSubmit(e)}}
+                  >
                     <div className="form-group">
-                      <input
+                      <input 
+                      required
+                        onChange={(e)=>{ handleChange(e)}}
                         className="form-control"
                         type="text"
                         placeholder="Hostel Name"
+
                         id="hostel_name"
                       />
                     </div>
                     <div className="form-group">
                       <input
+                      required
+                       onChange={(e)=>{ handleChange(e)}}
                         className="form-control"
                         type="text"
                         placeholder=" Address"
@@ -244,14 +294,15 @@ console.log(userDetails)
                     </div>
                     <div className="form-group">
                       <textarea
+                       onChange={(e)=>{ handleChange(e)}}
                         className="form-control"
                         required
-                        placeholder="Description"
+                        placeholder="Social Amenities"
                         style={{
                           height: "150px",
                           borderRadius: "10px",
                         }}
-                        id="description"
+                        id="socialAmenities"
                       />
                     </div>
 
@@ -260,9 +311,14 @@ console.log(userDetails)
                     </div>
                     <div className="form-group">
                       <input
+                      required
+                      onChange={(e)=>{
+                        addHostelPicture(e)
+                      }}
                         type="file"
-                        id="hostel_images"
+                        id="file"
                         className="form-control"
+                        name = "file"
                       />
                     </div>
                     <div className="form-group">
