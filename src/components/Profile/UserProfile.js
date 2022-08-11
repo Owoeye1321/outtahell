@@ -114,6 +114,7 @@ function UserProfile() {
                           required
                           id="profilePicture"
                           type="file"
+                          name = "file"
                         />
                       </label>
                       {profileImage ?  <p>Processing...</p> : <p>Upload Image</p>}
