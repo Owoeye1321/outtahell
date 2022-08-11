@@ -1,24 +1,24 @@
 const router = require('express').Router()
-const client = require('../controller/client')   
+const profileModel = require('../model/imageModel')
 
-router.get('/',async (req, res) =>{
+router.get('/', async (req, res) =>{
    const sess = req.session
+
    if(sess.username){
       const username = sess.username
-      console.log(username)
-         const collection = client.db("c_rentals").collection("admin_profile");
-         const result = await collection.find({username:username}).toArray()
-            if(result){
-               res.json(result)
-               console.log('working on result')
-               result.map((key)=>{
-                  console.log(key._id)
-                        console.log(key.username)
-                  console.log(key.email)
-               })
-            }else{
-               console.log('an error has occured')
-            }
+      const profile = new profileModel({
+         username: username
+      })
+
+      //checking if the profile of the user with the username
+        const allData = await profileModel.find({username:username})
+        if(allData){
+         res.json(allData)
+         console.log(allData)
+         console.log('The data exist and it has been sent')
+        }else{
+         console.log('Unable to locate profile')
+        }
       }else{
          res.send('invalid user')
          console.log('User authentication required')
