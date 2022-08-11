@@ -15,7 +15,9 @@ import Profile from "./components/Profile";
 import NorthGate from "./components/Gates/NorthGate";
 import WestGate from "./components/Gates/WestGate";
 import SouthGate from "./components/Gates/SouthGate";
+import PersonalDiary from "./components/personalUpload";
 import { AnimatePresence } from 'framer-motion/dist/framer-motion'
+import GetStarted from "./components/GetStarted";
   
   function AnimateRouter(){
     const location = useLocation()
@@ -37,8 +39,10 @@ import { AnimatePresence } from 'framer-motion/dist/framer-motion'
               <Route exact path="/dashboard" component={DashBoard} />
               <Route exact path="/northgate" component={NorthGate} />
               <Route exact path="/westgate" component={WestGate} />
+              <Route exact path="/view_available_hostels" component={GetStarted} />
               <Route exact path="/southgate" component={SouthGate} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/personalDiary" component={PersonalDiary} />
               <Route component={Error} />
             </Switch>
             </AnimatePresence>
