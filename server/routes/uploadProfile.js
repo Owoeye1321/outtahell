@@ -1,121 +1,124 @@
-const client = require('../controller/client')   
-    const router = require('express').Router()
-    const path = require('path')
-    const formidable = require('formidable');
-    const validator = require('../controller/validator')
-    const { isValidPhone } = require('phone-validation')
-    const fs = require('fs')
-    const imageModel = require('../model/imageModel')
-
-
-    router.post('/',(req, res, next)=>{
-      const sess = req.session
-      const username = sess.username
-      const form = new formidable.IncomingForm()
-      if(form){
-        form.multiples = false;
-           form.maxFileSize = 50 * 1024;
-             //form.uploadDir = uploadFolder;
-                  form.parse(req, async(err, fields, files)=>{
-                    if(err){
-                      console.log('Error parsing the files')
-                      return res.status(400).json({
-                        status:"fail",
-                        message:"There was an error parsing the files",
-                        error:err,
-                      })
-                    }else{
-                      const data = JSON.parse(fields.data)
-                      console.log(data)
-                      const details = {
-                         email : data.email,
-                         address : data.address
-                      }
-                      const phone = data.phone
-            
-                      const validationRule ={
-                        "email":'required|email',
-                        "address": "required|string|max:200"
-                    }
-                    validator(details, validationRule, {}, (err, status)=>{
-                       if(!status){
-                             console.log('An error has occured')
-                                   console.log(err)
-                          res.send('error')
-                       }else{
-                        const validPhone = isValidPhone(phone);
-                        if(validPhone === true){
-                          console.log('Processing details to save')
-                            const oldFilePath = files.file.filepath
-                            const uploadFolder = path.resolve('../src/assets/hostel_images' , files.file.originalFilename)
-            
-                            const extensionName = path.extname(files.file.originalFilename); // fetch the file extension
-                              const allowedExtension = ['.png','.jpg','.jpeg'];
-                              
-                              if(!allowedExtension.includes(extensionName)){
-                                res.send('error')
-                                console.log('Invalid file type')
-                              }else if(files.file.size > 50 * 1024){
-                                res.send('error')
-                                console.log('File too large')
-                              }else{
-                                  fs.rename(oldFilePath, uploadFolder, async(err)=>{
-                                    if(err){
-                                      res.send('error')
-                                      console.log('An error has occured uploading file')
-                                      console.log(err)
-                                    }else{
-                                     // const imageName = "../../assets/hostel_images/" + files.file.originalFilename
-                                     const imageData =  new imageModel( {
-                                          email :  data.email,
-                                          phone : phone,
-                                          address : data.address,
-                                            image : {
-                                              data: fs.readFileSync(path.resolve('../src/assets/hostel_images' , files.file.originalFilename)),
-                                              contentType: 'image/png'
-                                            }
-                                     })
-                                             const uploadProfile = await imageData.save()
-                                             if(uploadProfile){
-                                              
-                                             }
-                                          // const updateOne = await collection.updateOne({username:username},
-                                          //   {$set:{imageName:imageName, email:email, address:address, phone:phone}})
-                                          //   if(updateOne){
-                                          //     res.send('success')
-                                          //     console.log('Process completed')
-                                          //     console.log('Updated profile successfully')
-                                          //   }else{
-                                          //     const result  = await collection.insertOne({imageName:imageName,username:username, email:email, address:address, phone:phone})
-                                          //     if(result){
-                                          //          res.send('success')
-                                          //             console.log('Profile saved to database')
-                                          //             console.log('Process completed')
-                                          //             console.log('Uploaded file successfully')
-                                                   
-                                          //     }else{
-                                          //        res.send('error')
-                                          //        console.log('unable to save new user')
-                                          //     }
-                                          
-                                          //   }
-                                    }
-                                  })
-                              }
-                          console.log(files.file.filepath)
-                      
-                        }else{
-                          res.send('error')
-                          console.log('Invalid phone number')
-                        }
-                       }
-                    })
-                    }
-        })
-      }else{
-        console.log('Invalid form')
-      }
-
-
+const router = require('express').Router()
+const multer = require('multer')
+const path = require('path')
+const check =  path.resolve('../../src/assets/hostel_images')
+const profileModel = require('../model/imageModel')
+const validator = require('../controller/validator')
+const { isValidPhone } = require('phone-validation')
+const fs = require('fs')
+// const upload = multer({ dest:path.resolve('../../src/assets/hostel_images')})
+const storage = multer.diskStorage({
+    destination:(req , file , cb )=>{
+        cb(null , path.resolve(__dirname, '../../src/assets/admin_pictures'))
+    },
+    filename: (req , file , cb)=>{
+        cb(null , file.originalname)
+    }
 })
-module.exports =  router
+
+const upload = multer({storage:storage})
+
+router.get('/',(req , res)=>{
+    res.send('Working tree clean')
+    console.log('TADA ! Working on a new image solving bullshit')
+    console.log(check)
+})
+router.post('/',upload.single('file'), (req , res)=>{
+  const sess = req.session
+      console.log(JSON.parse(req.body.data))
+      const data = JSON.parse(req.body.data)
+    const username = sess.username
+    const email = data.email
+    const address = data.address
+    const phone = data.phone
+
+      const details = {
+                email : email,
+              address : address
+          }
+
+         const validationRule ={
+              "email":'required|email',
+              "address": "required|string|max:200"
+          }
+
+          validator(details, validationRule, {}, (err, status)=>{
+            if(!status){
+                    console.log('An error has occured')
+                          console.log(err)
+                res.send('error')
+              }else{
+              const validPhone = isValidPhone(phone);
+                if(validPhone === true){
+
+                  const oldFilePath = req.file.path
+                  const uploadFolder = path.resolve('../src/assets/admin_pictures' , req.file.filename)
+
+                  console.log('Phone number is valid')
+                  const extensionName = path.extname(req.file.filename); // fetch the file extension
+                  const allowedExtension = ['.png','.jpg','.jpeg'];
+                  console.log(extensionName , allowedExtension)
+                  if(!allowedExtension.includes(extensionName)){
+                    res.send('error')
+                    console.log('invalid file type')
+                  }else{
+                    if(req.file.size > 50 * 1024){
+                      res.send('error')
+                      console.log('file too large')
+                    }else{
+                      // fs.rename(oldFilePath, uploadFolder, async(err)=>{
+                      //     if(err){
+                      //       res.send('error')
+                      //         console.log('An error has occured uploading file')
+                      //         console.log(err)
+                      //     }
+                      // })
+
+                        // const saveImage = new profileModel({
+                        //     username:username,
+                        //     email: email,
+                        //     address:address,
+                        //     phone:phone,
+                        //     image:{
+                        //         data:fs.readFileSync(path.resolve('../../src/assets/hostel_images/' + req.file.filename)),
+                        //         contentType:"image/png"
+                        //     }
+                        // })
+                            profileModel.exists({username:username} , (err , result )=>{
+                              if(result){
+                                console.log(result)
+                                profileModel.updateOne({username:username} , {$set:{
+                                  email: email,
+                                  address:address,
+                                  phone:phone,
+                                  image:{
+                                      data:fs.readFileSync(path.resolve(__dirname ,'../../src/assets/admin_pictures/' + req.file.filename)),
+                                      contentType:"image/png"
+                                  }
+                                }} , (err , innerResult) =>{
+                                  if(innerResult){
+                                    res.send('success')
+                                    console.log('profile has been updated successfully')
+                                    console.log(innerResult)
+                                  }else{
+                                    console.log('unable to update profile')
+                                  }
+                                })
+                              }else{
+                                console.log(username)
+                                console.log('The user profile could not be found')
+                              }
+                            })
+                    }
+
+                  }
+                }else{
+                  console.log('Invalid phone number')
+                }
+
+              }
+          })
+})
+
+module.exports = router
+
