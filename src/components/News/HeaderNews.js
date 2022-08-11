@@ -31,7 +31,7 @@ function HeaderNews({ action }) {
                                     <a className="login-btn" href="/login">
                                         <i className="fal fa-user"></i> Login
                                     </a>
-                                    <a className="main-btn ml-30" href="#">
+                                    <a className="main-btn ml-30" href="/view_available_hostels">
                                         Get Started
                                     </a>
                                     <div
