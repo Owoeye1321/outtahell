@@ -1,0 +1,12 @@
+#joining{
+    width:300;
+    box-shadow: 5px 5px 45px 5px lightgrey,
+}
+
+#details{
+    margin-top: -10px;
+    font-size: 10px;
+}
+#firstDesc{
+    font-size: 14px;
+}
