@@ -1,9 +1,16 @@
-const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
-const session = require("express-session");
+if (process.env.NODE_ENV !== "production") require('dotenv').config();
+   const uri = process.env.ATLAS_URI_FOR_OWOEYE_LOCAL
+
+
+const express = require('express')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+const bodyParser = require('body-parser')
+const MongoStore = require('connect-mongo');
+const app = express()
 app.use(bodyParser.json());
 app.use(express.json())
+app.use(cookieParser())
 const path = require('path')
 //const fileUpload = require("express-fileupload");
 //const path = require('path')
@@ -15,18 +22,29 @@ app.use(express.static( path.resolve(__dirname, '../../src/assets/admin_pictures
 app.use(express.static( path.resolve(__dirname,  '../../src/assets/hostel_pages')));
 // calling body-parser to handle the Request Object from POST requests
 const oneDay = 1000 * 60 * 60 * 24;
-app.use(
-  session({
-    cookie: {
-      secure: true,
-      maxAge: 60000,
-    },
-    secret: "OwoeyeSamuelOlamide",
-    saveUninitialized: true,
-    cookie: { maxAge: oneDay },
-    resave: false,
+app.set('trust proxy', 1)
+app.use(session({
+  proxy:true,
+  secret:"OwoeyeSamuelOlamide",
+  saveUninitialized:false,
+  resave:false,
+
+  cookie:{        
+    maxAge:oneDay
+   },  
+  store: MongoStore.create({
+    mongoUrl: uri,
+    dbName: "c_rentals",
+    stringify: true,
+    autoRemove:'native'
   })
-);
+}))
+app.use(function(req,res,next){
+  if(!req.session){
+      return next(new Error('Oh no')) //handle error
+  }
+  next() //otherwise continue
+  });
 //app.use('/testingImage', require('./routes/testingImage'))
 app.use("/forgetpassword", require("./routes/forgetpassword"));
 app.use("/login", require("./routes/login"));
