@@ -8,7 +8,7 @@ const signUpSchema = new mongoose.Schema({
         email: String,
         password :{
                 type:String,
-                max:8
+                min:8
         }
 });
   

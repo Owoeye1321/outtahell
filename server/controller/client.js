@@ -3,7 +3,6 @@ if (process.env.NODE_ENV !== "production") require('dotenv').config();
    const mongoose = require('mongoose')
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
     mongoose.connect(uri,  { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 })
     .then(()=>{
@@ -13,4 +12,3 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 
 
-module.exports = client
