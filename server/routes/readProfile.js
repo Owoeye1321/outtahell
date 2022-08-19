@@ -14,7 +14,7 @@ router.get('/', async (req, res) =>{
         const allData = await profileModel.find({username:username})
         if(allData){
          res.json(allData)
-         console.log(allData)
+        // console.log(allData)
          console.log('The data exist and it has been sent')
         }else{
          console.log('Unable to locate profile')
