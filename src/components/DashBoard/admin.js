@@ -78,7 +78,7 @@ function Admin() {
         const interval = setInterval (()=>{
           response()
             fetchAll()
-        },100000)
+        },10000)
         return()=>{
                 clearInterval(interval)
         }
