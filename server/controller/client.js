@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV !== "production") require('dotenv').config();
-   const uri = process.env.ATLAS_URI_FOR_OWOEYE
+   const uri = process.env.ATLAS_URI_FOR_OWOEYE_LOCAL
    const mongoose = require('mongoose')
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
