@@ -1,5 +1,5 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-   const uri = process.env.ATLAS_URI_FOR_OWOEYE_LOCAL
+require('dotenv').config();
+   const uri = process.env.ATLAS_URI_FOR_OWOEYE
    require('./controller/client')
 
 
@@ -58,12 +58,19 @@ app.use('/logOut', require('./routes/logOut'))
 app.use('/addHostelDetails', require('./routes/addHostelDetails'))
 app.use('/getAllHostelInfo', require('./routes/fetchAllHostelDetails'))
 
-app.all("*", (req, res) => {
-  res.send("Hello there, you seem to be lost on this server");
-});
+
+
 // app.use(
 //   fileUpload()
 // );
+app.get('/',(req, res)=>{
+  res.send('Hello world')
+})
+
+
+app.all('*',( req, res)=>{
+  res.send('Hello there, you seem to be lost on this server')
+})
 
 app.listen(PORT, () => {
   // console.log(path.resolve('../src/assets/images'))
