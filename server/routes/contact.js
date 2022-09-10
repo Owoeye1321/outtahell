@@ -8,9 +8,7 @@ router.post('/',(req, res) =>{
    async function main() {
 
          const fname = req.body.data.fname
-               const lname = req.body.data.lname
                   const email = req.body.data.email
-                 const phone = req.body.data.phone
             const subject = req.body.data.subject 
      const message = req.body.data.message
 
@@ -27,11 +25,11 @@ router.post('/',(req, res) =>{
                     if(!err)console.log(result);console.log(err)
                 });
             // send mail with defined transport object
-            let info = await transporter.sendMail({
+             await transporter.sendMail({
                from:email, // sender address
                     to: "Owoeye1321@gmail.com", // list of receivers
                         subject: subject, // Subject line
-                   html:`<h1>Hello C -Rentals</h1> <h5>I'm ${fname + lname} </h5>  <h6>${message} \n  ${phone}</h6>` // plain text body
+                   html:`<h1>Hello C -Rentals</h1> <h5>I'm ${fname} </h5> \n <h6>${message}</h6>` // plain text body
             },(err, result)=>{
                 if(!err){ 
                     console.log('working on sending the emails')
