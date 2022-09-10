@@ -6,9 +6,7 @@ import axios from 'axios'
 function Forms() {
     const [data, setData ] = useState({
         fname:'',
-        lname:'',
         email:'',
-        phone:'',
         subject:'',
         message:''
     })
@@ -54,25 +52,10 @@ function Forms() {
                                     <h5>Phone</h5>
                                     <p>
                                         <i className="fal fa-phone"></i>
-                                        (+642) 245 356 432
+                                        (+234) 813 959 9128
                                         <br />
-                                        (+420) 336 476 328
+                                        (+234) 915 346 4158
                                     </p>
-                                </div>
-                                <div className="ab-social">
-                                    <h5>Follow Us</h5>
-                                    <a className="fac" href="#">
-                                        <i className="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a className="twi" href="#">
-                                        <i className="fab fa-twitter"></i>
-                                    </a>
-                                    <a className="you" href="#">
-                                        <i className="fab fa-youtube"></i>
-                                    </a>
-                                    <a className="lin" href="#">
-                                        <i className="fab fa-linkedin-in"></i>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -82,10 +65,7 @@ function Forms() {
                                 <p>Send us a message to connect with you.</p>
                                 <form className="row" onSubmit = {(e)=>submit(e)} >
                                     <div className="col-md-6">
-                                        <input required type="text" onChange = {(e)=>handle(e)}   id="fname" placeholder="First Name" />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input required type="text" onChange = {(e)=>handle(e)}  id="lname" placeholder="Last Name" />
+                                        <input required type="text" onChange = {(e)=>handle(e)}   id="fname" placeholder="Name" />
                                     </div>
                                     <div className="col-md-6">
                                         <input required 
@@ -93,14 +73,6 @@ function Forms() {
                                             type="email"
                                             id="email"
                                             placeholder="Email Address"
-                                        />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input required
-                                            onChange = {(e)=>handle(e)}  
-                                            type="number"
-                                            id="phone"
-                                            placeholder="Phone Number"
                                         />
                                     </div>
                                     <div className="col-md-12">
