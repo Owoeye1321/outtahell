@@ -21,9 +21,9 @@ function AboutUs() {
       <Drawer drawer={drawer} action={drawerAction.toggle} />
       <HeaderAbout drawer={drawer} action={drawerAction.toggle} />
       <HeroAbout />
-      <ServicesAbout />
+      {/* <ServicesAbout /> */}
       <TeamHomeOne />
-      <TeamAbout />
+      {/* <TeamAbout /> */}
       <FooterHomeOne className="appie-footer-about-area" />
       <BackToTop />
     </motion.div>
