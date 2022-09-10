@@ -8,7 +8,7 @@ function Navigation() {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>
+        {/* <li>
           <a href="#">
             Rentals <i className="fal fa-angle-down" />
           </a>
@@ -23,7 +23,7 @@ function Navigation() {
               <Link to="/westgate">West Gate</Link>
             </li>
           </ul>
-        </li>
+        </li> */}
         <li>
           <Link to="/service">Service</Link>
         </li>
