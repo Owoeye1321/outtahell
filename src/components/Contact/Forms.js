@@ -44,18 +44,21 @@ function Forms() {
                                     <h5>Headquaters</h5>
                                     <p>
                                         <i className="fal fa-home"></i>
-                                      Federal university of technology
-                                        <br /> Minna
+                                        Kwara State University
+                                        <br /> Malete
                                     </p>
                                 </div>
                                 <div className="single-info">
                                     <h5>Phone</h5>
                                     <p>
                                         <i className="fal fa-phone"></i>
-                                        (+234) 813 959 9128
-                                        <br />
-                                        (+234) 915 346 4158
-                                    </p>
+                                       <a href='tel:+2349164787591'>(+234) 916 478 7591</a>
+                                        <br /> 
+                                        </p>
+                                        <p>
+                                        <i className="fal fa-phone"></i>
+                                        <a href='tel:+2349153464158'>(+234) 915 346 4158</a>
+                                        </p>
                                 </div>
                             </div>
                         </div>

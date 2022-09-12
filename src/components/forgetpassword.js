@@ -3,7 +3,7 @@ import { motion } from 'framer-motion/dist/framer-motion'
 import {useState} from 'react'
 import axios from 'axios'
 
-function Login() {
+function Forgetpassword() {
     const [email, setEmail] = useState({
         email:''
     })
@@ -66,4 +66,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Forgetpassword;

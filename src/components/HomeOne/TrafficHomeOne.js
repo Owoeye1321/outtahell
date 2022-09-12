@@ -1,5 +1,5 @@
 import React from 'react';
-import thumb from '../../assets/images/three.jpg';
+import thumb from '../../assets/images/k2.jpg';
 
 function TrafficHomeOne() {
     return (
@@ -56,7 +56,7 @@ function TrafficHomeOne() {
                     </div>
                 </div>
             </div>
-            <div className="traffic-thumb ">
+            <div className="traffic-thumb mb-3">
                 <img style = {{width:'846', height:"677px"}}
                     className="wow animated fadeInRight"
                     data-wow-duration="2000ms"

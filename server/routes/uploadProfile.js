@@ -9,7 +9,7 @@ const fs = require('fs')
 // const upload = multer({ dest:path.resolve('../../src/assets/hostel_images')})
 const storage = multer.diskStorage({
     destination:(req , file , cb )=>{
-        cb(null , path.resolve(__dirname, '../../src/assets/admin_pictures'))
+        cb(null , path.resolve('./public'))
     },
     filename: (req , file , cb)=>{
         cb(null , file.originalname)
@@ -52,7 +52,7 @@ router.post('/',upload.single('file'), (req , res)=>{
                 if(validPhone === true){
 
                   const oldFilePath = req.file.path
-                  const uploadFolder = path.resolve('../src/assets/admin_pictures' , req.file.filename)
+                  const uploadFolder = path.resolve('./public' , req.file.filename)
 
                   console.log('Phone number is valid')
                   const extensionName = path.extname(req.file.filename); // fetch the file extension
@@ -66,24 +66,7 @@ router.post('/',upload.single('file'), (req , res)=>{
                       res.send('error')
                       console.log('file too large')
                     }else{
-                      // fs.rename(oldFilePath, uploadFolder, async(err)=>{
-                      //     if(err){
-                      //       res.send('error')
-                      //         console.log('An error has occured uploading file')
-                      //         console.log(err)
-                      //     }
-                      // })
 
-                        // const saveImage = new profileModel({
-                        //     username:username,
-                        //     email: email,
-                        //     address:address,
-                        //     phone:phone,
-                        //     image:{
-                        //         data:fs.readFileSync(path.resolve('../../src/assets/hostel_images/' + req.file.filename)),
-                        //         contentType:"image/png"
-                        //     }
-                        // })
                             profileModel.exists({username:username} , (err , result )=>{
                               if(result){
                                 console.log(result)
@@ -92,7 +75,7 @@ router.post('/',upload.single('file'), (req , res)=>{
                                   address:address,
                                   phone:phone,
                                   image:{
-                                      data:fs.readFileSync(path.resolve(__dirname ,'../../src/assets/admin_pictures/' + req.file.filename)),
+                                      data:fs.readFileSync(path.resolve('./public/' + req.file.filename)),
                                       contentType:"image/png"
                                   }
                                 }} , (err , innerResult) =>{

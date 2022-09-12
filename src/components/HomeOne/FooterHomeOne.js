@@ -73,13 +73,13 @@ function FooterHomeOne({ className }) {
                   </li>
                   <li>
                     <a href="#">
-                      <i className="fal fa-phone" /> +(234) 704 616 6802
+                      <i className="fal fa-phone" /> +(234) 915 346 4158
                     </a>
                   </li>
                   <li>
                     <a href="#">
                       <i className="fal fa-map-marker-alt" />
-                      North Gate, Futa. Akure
+                     Kwara State University, Malete
                     </a>
                   </li>
                 </ul>

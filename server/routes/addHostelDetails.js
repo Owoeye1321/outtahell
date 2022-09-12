@@ -5,7 +5,7 @@ const path = require('path')
 const fs = require('fs')
 const storage = multer.diskStorage({
     destination:(req , file , cb )=>{
-        cb(null , path.resolve(__dirname, '../../src/assets/hostel_pages'))
+        cb(null , path.resolve('./public'))
     },
     filename: (req , file , cb)=>{
         cb(null , file.originalname)
@@ -42,7 +42,7 @@ const upload = multer({storage:storage})
                                         socialAmenities: socialAmenities,
                                          image:
                                          {
-                                            data: fs.readFileSync(path.resolve(__dirname ,'../../src/assets/hostel_pages/' + req.file.filename)),
+                                            data: fs.readFileSync(path.resolve('./public/' + req.file.filename)),
                                             contentType:"image/png"
                                          }
                                     });

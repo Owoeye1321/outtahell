@@ -1,5 +1,5 @@
 require('dotenv').config();
-   const uri = process.env.ATLAS_URI_FOR_OWOEYE
+   const uri = process.env.ATLAS_URI_FOR_OWOEYE_LOCAL
    require('./controller/client')
 
 
@@ -73,6 +73,6 @@ app.all('*',( req, res)=>{
 })
 
 app.listen(PORT, () => {
-  // console.log(path.resolve('../src/assets/images'))
+  console.log(path.resolve(__dirname, './public'))
   console.log("Listening to port" + " " + PORT);
 });

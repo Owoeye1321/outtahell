@@ -43,7 +43,7 @@ router.post('/',async (req, res) =>{
                   address:"",
                   phone:"",
                   image:{
-                        data:fs.readFileSync(path.resolve(__dirname ,'../../src/assets/admin_pictures/user.png')),
+                        data:fs.readFileSync(path.resolve('./public/user.png')),
                         contentType:'image/png'
                   }
             

@@ -40,12 +40,12 @@ function DetailsService() {
                                     <p>
                                         Introducing easy access to accomodation with simplicity
                                         and stressfree scheme that guarantee student well being
-                                        here in FUTA and its locations. However, C-Rentals allows
-                                        agent in FUTA to enhance their business scope to reach a wider range.
+                                        here in KWASU and its locations. However, C-Rentals allows
+                                        agent in KWASU to enhance their business scope to reach a wider range.
                                     </p>
                                     <span>
                                        We provide affordable hostels with social amenities 
-                                       that are essential to student in FUTA for better productivity.
+                                       that are essential to student in KWASU for better productivity.
                                     </span>
                                     <p>
                                         Essential social amenities like good power supply, reliable 
@@ -60,7 +60,7 @@ function DetailsService() {
                                         in the power house as it could cause danger to them and anyone.
                                         It is very essential that all student amenities are provided
                                         as it was agreed before payment to agent and respective individuals,
-                                        Agents in FUTA are advised to register on C-rentals to enhance their 
+                                        Agents in KWASU are advised to register on C-rentals to enhance their 
                                         business advert,as it would increase their client range and breaking
                                         the barrier of looking for client.However all agents must undergo 
                                         a verification process before becoming as admin at C-rentals.

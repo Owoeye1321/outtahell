@@ -30,7 +30,6 @@ function TestimonialHomeOne() {
                             <Slider ref={sliderRef} dots arrows={false}>
                                 <div className="appie-testimonial-item text-center">
                                     <div className="author-info">
-                                        <img src={user} alt="" />
                                         <h5 className="title">Jason Response</h5>
                                         <span>April 14, 2022</span>
                                     </div>
@@ -59,8 +58,7 @@ function TestimonialHomeOne() {
                                 </div>
                                 <div className="appie-testimonial-item text-center">
                                     <div className="author-info">
-                                        <img src={user} alt="" />
-                                        <h5 className="title">Jason Response</h5>
+                                        <h5 className="title">Stephen Response</h5>
                                         <span>April 14, 2022</span>
                                     </div>
                                     <div className="text">
@@ -88,8 +86,7 @@ function TestimonialHomeOne() {
                                 </div>
                                 <div className="appie-testimonial-item text-center">
                                     <div className="author-info">
-                                        <img src={user} alt="" />
-                                        <h5 className="title">Jason Response</h5>
+                                        <h5 className="title">Kehinde Response</h5>
                                         <span>April 14, 2022</span>
                                     </div>
                                     <div className="text">

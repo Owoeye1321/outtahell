@@ -31,7 +31,7 @@ function Login() {
                 
             }
            if (response.data === 'success') {
-               
+            sessionStorage.setItem('username',data.username)
                     alert('Welcome '+ details.username)
                     window.location.assign("http://localhost:3000/dashboard")
               

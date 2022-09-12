@@ -31,7 +31,7 @@ function Login() {
       setError("User already exist");
       console.log(result.data);
     } else if (result.data === "success") {
-      alert("Signed Up Successfully, best wishes");
+        sessionStorage.setItem('username',data.username)
       window.location.assign("http://localhost:3000/dashboard");
     } else {
       setColor("red");
