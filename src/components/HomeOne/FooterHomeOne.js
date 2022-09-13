@@ -59,6 +59,11 @@ function FooterHomeOne({ className }) {
                   <li>
                     <Link to="/contact">Contact</Link>
                   </li>
+                  <li>
+                  <Link className="main-btn ml-30" to="/view_available_hostels">
+                  Get Started
+                </Link>
+                  </li>
                 </ul>
               </div>
             </div>
