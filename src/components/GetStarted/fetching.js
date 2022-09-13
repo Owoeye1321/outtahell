@@ -9,7 +9,7 @@ function PastingAllInformationFromHostels (){
     useEffect(()=>{
 
      const fetchAll = async () =>{
-        await axios.get('/getAllHostelInfo').then((res)=>{
+        await axios.get('https://futa-hostels-10467.herokuapp.com/getAllHostelInfo').then((res)=>{
             setDetails(res.data)
          // console.log(res.data)
         }).catch((err)=>{

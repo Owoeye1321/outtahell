@@ -4,7 +4,7 @@ const hostelPosts = require('../model/postModel')
 
 router.get('/', async ( req , res )=>{
     console.log('working on the result of all the hostel')
-    const allData = await hostelPosts.find({})
+    const allData = await hostelPosts.find()
         if(allData){
             res.json(allData)
            // console.log('Data has been sent to the frontend')
