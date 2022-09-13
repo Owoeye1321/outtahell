@@ -77,9 +77,10 @@ function FooterHomeOne({ className }) {
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <i className="fal fa-phone" /> +(234) 915 346 4158
-                    </a>
+                  <p>
+                                        <i className="fal fa-phone"></i>
+                                        <a href='tel:+2349153464158'>(+234) 915 346 4158</a>
+                                        </p>
                   </li>
                   <li>
                     <a href="#">
