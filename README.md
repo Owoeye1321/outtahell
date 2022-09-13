@@ -13,6 +13,10 @@ However, agent can also update and edit profile details
  This is a page where all student could navigae to and find a suitable hostel in the getting started page.
 
 
+#### Account Security
+This diary provides security to all informations stored on it, with user authentication and verification. <br />
+Login and Sign up page for user authentication, sessionStorage is used to monitor each user activities
+
  #### Tools
 
  Reactjs, Nodejs, MongoDB, Bootstrap
