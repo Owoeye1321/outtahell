@@ -25,6 +25,9 @@ function Navigation() {
           </ul>
         </li> */}
         <li>
+        <Link to="/view_available_hostels"> Get Started </Link>
+        </li>
+        <li>
           <Link to="/service">Service</Link>
         </li>
         <li>
