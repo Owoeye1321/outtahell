@@ -74,22 +74,22 @@ const fetchAll = async () =>{
             <div className="row">
             <div className="col-sm-12 col-md-3 col-lg-3  p-4">
             <div id = {Styles.joining}> 
-              hello world
+              
             </div>
             </div>
             <div className="col-sm-12 col-md-3 col-lg-3  p-4">
             <div id = {Styles.joining}> 
-              hello world
+
             </div>
             </div>
             <div className="col-sm-12 col-md-3 col-lg-3  p-4">
             <div id = {Styles.joining}> 
-              hello world
+
             </div>
             </div>
             <div className="col-sm-12 col-md-3 col-lg-3  p-4">
             <div id = {Styles.joining}> 
-              hello world
+
             </div>
             </div>
           </div>

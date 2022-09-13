@@ -23,7 +23,6 @@ function Admin() {
     const [pickFourth, setPickFourth] = useState('none')
 
   const LogOut = async()=>{
-    alert('logging out')
     const logUserOut = await axios.get('https://futa-hostels-10467.herokuapp.com/logOut')
     if(logUserOut.data === "success"){
       sessionStorage.clear()

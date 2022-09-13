@@ -6,9 +6,9 @@ require('dotenv').config();
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
-//const session = require('express-session')
+const session = require('express-session')
 const bodyParser = require('body-parser')
-// const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo');
 const app = express()
 app.use(bodyParser.json());
 app.use(express.json())
@@ -24,30 +24,30 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static( path.resolve('./public')));
 app.use(express.static( path.resolve('./public')));
 // calling body-parser to handle the Request Object from POST requests
-//const oneDay = 1000 * 60 * 60 * 24;
+const oneDay = 1000 * 60 * 60 * 24;
 app.set('trust proxy', 1)
-// app.use(session({
-//   proxy:true,
-//   secret:"OwoeyeSamuelOlamide",
-//   saveUninitialized:false,
-//   resave:false,
+app.use(session({
+  proxy:true,
+  secret:"OwoeyeSamuelOlamide",
+  saveUninitialized:false,
+  resave:false,
 
-//   cookie:{        
-//     maxAge:oneDay
-//    },  
-//   store: MongoStore.create({
-//     mongoUrl: uri,
-//     dbName: "c_rentals",
-//     stringify: true,
-//     autoRemove:'native'
-//   })
-// }))
-// app.use(function(req,res,next){
-//   if(!req.session){
-//       return next(new Error('Oh no')) //handle error
-//   }
-//   next() //otherwise continue
-//   });
+  cookie:{        
+    maxAge:oneDay
+   },  
+  store: MongoStore.create({
+    mongoUrl: uri,
+    dbName: "c_rentals",
+    stringify: true,
+    autoRemove:'native'
+  })
+}))
+app.use(function(req,res,next){
+  if(!req.session){
+      return next(new Error('Oh no')) //handle error
+  }
+  next() //otherwise continue
+  });
 //app.use('/testingImage', require('./routes/testingImage'))
 app.use("/forgetpassword", require("./routes/forgetpassword"));
 app.use("/login", require("./routes/login"));
