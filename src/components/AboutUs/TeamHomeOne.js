@@ -8,7 +8,7 @@ function TeamHomeOne() {
       <section className="appie-team-area pt-90 pb-100">
         <div className="container">
           <div className="row">
-            <div className="col-lg-12">
+            <div className="col-sm-12 col-lg-12 col-md-6">
               <div className="appie-section-title text-center">
                 <h3 className="appie-title">Founder</h3>
                 <p>Different layouts and styles for team sections.</p>
@@ -16,7 +16,7 @@ function TeamHomeOne() {
             </div>
           </div>
           <div className="row justify-content-center">
-            <div className="col-lg-4 col-md-6">
+            <div className="col-sm-12 col-lg-4 col-md-6">
               <div
                 className="appie-team-item mt-30 wow animated fadeInUp"
                 data-wow-duration="2000ms"

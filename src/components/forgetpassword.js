@@ -4,25 +4,28 @@ import {useState} from 'react'
 import axios from 'axios'
 
 function Forgetpassword() {
-    const [email, setEmail] = useState({
-        email:''
-    })
+    const [error, setError] = useState('')
+    const [state, setState]= useState('red')
+    const [email, setEmail] = useState('')
     const handle = (e)=>{
-        const data = { ...email }
-        data[e.target.id] = e.target.value
-        setEmail(data)
-        console.log(email)
+        setEmail(e.target.value)
+      //  console.log(email)
     }
 
     const submitThisShit = async (e)=>{
         e.preventDefault()
-        const result = await axios.post('/forgetpassword',{
-            email:email.email
+        const result = await axios.post('https://diary-app-48602.herokuapp.com/forgetpassword',{
+            email:email
         })
-        if(result){
-            console.log('working on the result')
+        if(result.data === 'success'){
+            setState('green')
+            setError("Password has been sent to email")
             console.log(result)
-        }
+        }else if(result.data === 'error'){
+            setError('No email provided')
+        }else if(result.data === 'failed'){
+            setError('No password attached to this email')
+        } 
     }
     return (
         <motion.div
@@ -46,8 +49,12 @@ function Forgetpassword() {
                 id="email"
                 className="form-control"
               />
-            </div>
-	                                <p>You will receive an email containing a link allowing you to reset your password to a new preferred one.</p>
+            </div><div style={{ fontSize: '10px' ,marginBottom: '5'}}>
+                                    <center>
+                                    <i style={{marginBottom:"5px",color:state}}>{error}</i>
+                                    </center>
+                                </div>
+                                <p>You will receive an email containing your password.</p>
 	                                <div className="text-center"><input type="submit" value="Reset Password" className="form-control "/></div>
 	                            </div>
 	                        </form>
