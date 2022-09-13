@@ -15,19 +15,19 @@ function Forms() {
         const newData = {...data}
         newData[e.target.id] = e.target.value
         setData(newData)
-        console.log(data)
+      //  console.log(data)
     }
     
     const submit = async(e)=>{      
         e.preventDefault()
-        const result = await axios.post('/dashboard',{data})
+        const result = await axios.post('https://futa-hostels-10467.herokuapp.com//dashboard',{data})
    if(result.data == "success"){
            alert("Email has been sent successfully to C-rentals official")
-       // window.location.assign("http://localhost:3000/login")
-       }
-       else{
-           alert('An error has occured')
-           alert('An error has occured')
+        window.location.assign("https://futa-hostel-rentals-c3bf0b.netlify.app/")
+       }else{
+        console.log('Unable to send email')
+        //    alert('An error has occured')
+        //    alert('An error has occured')
         
     }
     }  

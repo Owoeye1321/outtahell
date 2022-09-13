@@ -9,15 +9,15 @@ const user = require('../model/userModel')
 
 router.post('/',async ( req, res ) =>{
 
-    console.log(req.body)
+   // console.log(req.body)
 
     if(req.body.email){
       async function main() {
   
-          const email = req.body.email
+          const email = req.body.email17
            const response =  await user.findOne({email:email})
                if(response){
-                console.log(response)
+              //  console.log(response)
                       // create reusable transporter object using the default SMTP transport
             let transporter = await nodemailer.createTransport({
             //   host: "smtp.gmail.com",
@@ -48,12 +48,11 @@ router.post('/',async ( req, res ) =>{
                    }, (err, result) => {
                        if (!err) {
                            console.log('working on sending the emails');
-                           console.log(result);
+                         //  console.log(result);
                            res.send('success');
                        } else {
                           res.send('failed')
-                           console.log('An error has occured and an issue need to be fixed');
-                           console.log(err);
+                           console.log('An error has occured and an issue need to be fixed',err);
                        }
                    })
           

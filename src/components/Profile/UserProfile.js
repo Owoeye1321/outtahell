@@ -32,15 +32,15 @@ function UserProfile() {
       profileData.append('file', profileImage)
          console.log('Working on it mehn')
      //  console.log(profileData)
-     const result = await axios.post('/adminProfile',profileData)
+     const result = await axios.post('https://futa-hostels-10467.herokuapp.com/adminProfile',profileData)
       if (result.data === 'log'){
-            window.location.assign('http://localhost:3000/login')
+            window.location.assign('https://futa-hostel-rentals-c3bf0b.netlify.app/login')
               // console.log(result.data)
            }else if (result.data === 'error'){
         setError('Invalid details')
              }else if(result.data === 'success'){
            alert('Updated Profile successfully')
-           window.location.assign('http://localhost:3000/dashboard')
+           window.location.assign('https://futa-hostel-rentals-c3bf0b.netlify.app/dashboard')
       }else{
         setError('')
       }
@@ -48,8 +48,8 @@ function UserProfile() {
     useEffect(()=>{
       
         const response = async ()=>{
-          let check = await axios.post('/check',{username:sessionStorage.getItem('username')});
-            if(check.data ==='failed') window.location.assign('http://localhost:3000/login')
+          let check = await axios.post('https://futa-hostels-10467.herokuapp.com/check',{username:sessionStorage.getItem('username')});
+            if(check.data ==='failed') window.location.assign('https://futa-hostel-rentals-c3bf0b.netlify.app/login')
             console.log(check.data)
         }
         response()

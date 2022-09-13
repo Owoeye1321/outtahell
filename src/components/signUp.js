@@ -21,7 +21,7 @@ function Login() {
 
   const submit = async (e) => {
     e.preventDefault();
-    const result = await axios.post("/signUp", {
+    const result = await axios.post("https://futa-hostels-10467.herokuapp.com/signUp", {
       username: data.username,
       password: data.password,
       email: data.email,
@@ -32,7 +32,7 @@ function Login() {
       console.log(result.data);
     } else if (result.data === "success") {
         sessionStorage.setItem('username',data.username)
-      window.location.assign("http://localhost:3000/dashboard");
+      window.location.assign("https://futa-hostel-rentals-c3bf0b.netlify.app/dashboard");
     } else {
       setColor("red");
       setError("Invalid details");

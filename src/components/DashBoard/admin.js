@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import userProfile from "../../assets/images/user.png";
 import logo from "../../assets/images/see.svg";
 import axios from "axios";
-import session from "express-session";
 
 
 function Admin() {
@@ -25,10 +24,10 @@ function Admin() {
 
   const LogOut = async()=>{
     alert('logging out')
-    const logUserOut = await axios.get('/logOut')
+    const logUserOut = await axios.get('https://futa-hostels-10467.herokuapp.com/logOut')
     if(logUserOut.data === "success"){
       sessionStorage.clear()
-      window.location.assign('http://localhost:3000/login')
+      window.location.assign('https://futa-hostel-rentals-c3bf0b.netlify.app/login')
     }
   }
   const handleSubmit = async (e)=>{
@@ -38,7 +37,7 @@ function Admin() {
     addForm.append('data', JSON.stringify(addHostelDetails))
     addForm.append('file',hostelPicture)
    // console.log(addForm)
-    const checkingFormUpdates = await axios.post('/addHostelDetails',addForm)
+    const checkingFormUpdates = await axios.post('https://futa-hostels-10467.herokuapp.com/addHostelDetails',addForm)
     if(checkingFormUpdates.data === 'success'){ 
       console.log('Hostel information saved successfully')
       alert('Hostel information saved successfully')
@@ -62,14 +61,14 @@ function Admin() {
     // alert('hello there i am trying to control the width of the screen')
     // alert(window.width)
     const response = async ()=>{
-        let check = await axios.post('/check',{username:sessionStorage.getItem('username')});
-        if(check.data ==='failed') window.location.assign('http://localhost:3000/login')
+        let check = await axios.post('https://futa-hostels-10467.herokuapp.com/check',{username:sessionStorage.getItem('username')});
+        if(check.data ==='failed') window.location.assign('https://futa-hostel-rentals-c3bf0b.netlify.app/login')
       //  / console.log(check.data)
     }
     response()
 
      const fetchAll = async () =>{
-      await axios.post('/read',{username:sessionStorage.getItem('username')}).then((res)=>{
+      await axios.post('https://futa-hostels-10467.herokuapp.com/read',{username:sessionStorage.getItem('username')}).then((res)=>{
         setUserDetails(res.data)
        // console.log(res.data)
       }).catch((err)=>{
