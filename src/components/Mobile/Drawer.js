@@ -45,33 +45,6 @@ function Drawer({ drawer, action }) {
                       <a href="#">Home</a>
                     </li>
                     <li
-                      onClick={(e) => handler(e, "pages")}
-                      id="pages"
-                      className="menu-item-has-children active"
-                    >
-                      <span className="menu-expand">
-                        <i className="fa fa-angle-down"></i>
-                      </span>
-                      <a href="#">Rentals</a>
-                      <ul
-                        className="sub-menu"
-                        style={{
-                          height: item === "pages" ? itemSize : "0px",
-                        }}
-                      >
-                        <li>
-                          <Link to="/northgate">North Gate</Link>
-                        </li>
-
-                        <li>
-                          <Link to="/southgate">South Gate</Link>
-                        </li>
-                        <li>
-                          <Link to="/westgate">West Gate</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li
                       onClick={(e) => handler(e, "service")}
                       id="service"
                       className="menu-item-has-children active"
@@ -128,13 +101,13 @@ function Drawer({ drawer, action }) {
                     </li>
                     <li>
                       <a href="#">
-                        <i className="fal fa-phone"></i> +(234) 704 616 6802
+                        <i className="fal fa-phone"></i> +(234) 915 344 4158
                       </a>
                     </li>
                     <li>
                       <a href="#">
                         <i className="fal fa-map-marker-alt"></i>
-                        North Gate, Futa, Akure.
+                        Kwara State University
                       </a>
                     </li>
                   </ul>

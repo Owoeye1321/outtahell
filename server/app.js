@@ -57,6 +57,7 @@ app.use("/read", require("./routes/readProfile"));
 app.use('/logOut', require('./routes/logOut'))
 app.use('/addHostelDetails', require('./routes/addHostelDetails'))
 app.use('/getAllHostelInfo', require('./routes/fetchAllHostelDetails'))
+app.use('/personalGallery',require('./routes/postPersonal'))
 
 
 

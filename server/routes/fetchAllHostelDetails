@@ -7,7 +7,7 @@ router.get('/', async ( req , res )=>{
     const allData = await hostelPosts.find({})
         if(allData){
             res.json(allData)
-            console.log('Data has been sent to the frontend')
+           // console.log('Data has been sent to the frontend')
            // console.log('All data has been sent', allData)
         }else{
             console.log('Unable to locate data with the email')

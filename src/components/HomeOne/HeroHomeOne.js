@@ -11,9 +11,9 @@ function HeroHomeOne() {
       <section className="appie-hero-area">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6">
+            <div className="col-sm-12 col-lg-6 my-5" >
               <div className="appie-hero-content">
-                <span>Welcome To C-Rentals</span>
+                <span style={{fontSize:"25px"}}>Welcome To C-Rentals</span>
                 <h3 className="appie-title">
                  Comfortability, in KWASU new system
                 </h3>
@@ -22,7 +22,7 @@ function HeroHomeOne() {
                 </p>
               </div>
             </div>
-            <div className="col-lg-6">
+            <div className="col-sm-12 col-lg-6 my-5" >
               <div className="appie-hero-thumb">
                 <div
                   className="thumb wow animated fadeInUp"

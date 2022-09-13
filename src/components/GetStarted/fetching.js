@@ -11,21 +11,20 @@ function PastingAllInformationFromHostels (){
      const fetchAll = async () =>{
         await axios.get('/getAllHostelInfo').then((res)=>{
             setDetails(res.data)
-          console.log(res.data)
+         // console.log(res.data)
         }).catch((err)=>{
           console.log('An error has occured' , err)
         })
   
        }
        fetchAll()
-          const interval = setInterval (()=>{
-              fetchAll()
-          },30000)
-          return()=>{
-                  clearInterval(interval)
-          }
-    },[])
-    console.log(details)
+          // const interval = setInterval (()=>{
+          //     fetchAll()
+          // },30000)
+          // return()=>{
+          //         clearInterval(interval)
+          // }
+    },[details])
     return(
         <>
       <section

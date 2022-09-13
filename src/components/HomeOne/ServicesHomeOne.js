@@ -24,9 +24,9 @@ function ServicesHomeOne({ className }) {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-6">
+          <div className="col-sm-12 col-lg-3 col-md-6 my-3">
             <div
-              className="appie-single-service wow animated fadeInUp"
+              className="appie-single-service wow animated fadeInUp "
               data-wow-duration="2000ms"
               data-wow-delay="200ms"
               style={{width:'100%', height:'100%'}}
@@ -35,7 +35,7 @@ function ServicesHomeOne({ className }) {
 
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
+          <div className="col-sm-12  col-lg-3 col-md-6 my-3">
             <div
               className="appie-single-service  item-2 wow animated fadeInUp"
               data-wow-duration="2000ms"
@@ -47,7 +47,7 @@ function ServicesHomeOne({ className }) {
 
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
+          <div className="col-sm-12 col-lg-3 col-md-6 my-3">
             <div
               className="appie-single-service item-3 wow animated fadeInUp"
               data-wow-duration="2000ms"
@@ -59,7 +59,7 @@ function ServicesHomeOne({ className }) {
 
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
+          <div className="col-sm-12 col-lg-3 col-md-6 my-3">
             <div
               className="appie-single-service item-4 wow animated fadeInUp"
               data-wow-duration="2000ms"

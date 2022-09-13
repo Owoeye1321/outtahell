@@ -1,11 +1,14 @@
 const router = require ('express').Router()
-router.get('/',(req, res)=>{
-    const sess = req.session
-    if(sess.username){
-        res.send('success')
-        console.log(req.session)
-    }else{
+router.post('/',(req, res)=>{
+   // console.log(req.body)
+    if(!req.body.username){
+        console.log(req.body)
+        console.log('failed')
         res.send('failed')
+        
+    }else{
+       // console.log(req.body.username)
+            res.send('success')
     }
 })
 module.exports = router

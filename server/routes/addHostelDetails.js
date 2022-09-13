@@ -14,12 +14,10 @@ const storage = multer.diskStorage({
 const upload = multer({storage:storage})
         
         router.post('/' , upload.single('file') , (req, res)=>{
-            const sess = req.session
-            const username = sess.username
-          console.log(JSON.parse(req.body.data))
+                const data = JSON.parse(req.body.data)
              console.log(req.file)
-        if(username){
-            const data = JSON.parse(req.body.data)
+        if(data){
+            const username = data.username
             const hostelName = data.hostel_name
             const address = data.address
             const socialAmenities = data.socialAmenities
@@ -56,22 +54,10 @@ const upload = multer({storage:storage})
                           }
                       }
         }else{
+            res.send('error')
             console.log('User authentication needed')
         }
        
         })
-        router.get('/', async ( req , res )=>{
-            const sess = req.session
-            const username = sess.username
-            if(username){
-                const allData = await hostelPosts.find({username:username})
-                if(allData){
-                    res.json(allData)
-                    console.log('Data has been sent to the frontend')
-                 //   console.log('All data has been sent', allData)
-                }else{
-                    console.log('Unable to locate data with the email')
-                }
-            }
-        })
+    
 module.exports = router

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import userProfile from "../../assets/images/user.png";
 import logo from "../../assets/images/see.svg";
 import axios from "axios";
+import session from "express-session";
 
 
 function Admin() {
@@ -11,7 +12,8 @@ function Admin() {
   const [addHostelDetails, setAddHostelDetails] = useState({
     hostel_name:'',
     address:'',
-    socialAmenities:''
+    socialAmenities:'',
+    username:sessionStorage.getItem('username')
   });
   const [hostelPicture, setHostelPicture] = useState('')
 
@@ -25,6 +27,7 @@ function Admin() {
     alert('logging out')
     const logUserOut = await axios.get('/logOut')
     if(logUserOut.data === "success"){
+      sessionStorage.clear()
       window.location.assign('http://localhost:3000/login')
     }
   }
@@ -34,7 +37,7 @@ function Admin() {
     const addForm = new FormData()
     addForm.append('data', JSON.stringify(addHostelDetails))
     addForm.append('file',hostelPicture)
-    console.log(addForm)
+   // console.log(addForm)
     const checkingFormUpdates = await axios.post('/addHostelDetails',addForm)
     if(checkingFormUpdates.data === 'success'){ 
       console.log('Hostel information saved successfully')
@@ -46,12 +49,12 @@ function Admin() {
       const addNewData = { ...addHostelDetails }
       addNewData[e.target.id]= e.target.value
       setAddHostelDetails(addNewData)
-      console.log(addHostelDetails)
+      //console.log(addHostelDetails)
     }
     const addHostelPicture = (e)=>{
       let name = e.target.files[0]
       setHostelPicture(name)
-      console.log(hostelPicture)
+  //    console.log(hostelPicture)
 
     }
 
@@ -59,33 +62,24 @@ function Admin() {
     // alert('hello there i am trying to control the width of the screen')
     // alert(window.width)
     const response = async ()=>{
-        let check = await axios.get('/check');
+        let check = await axios.post('/check',{username:sessionStorage.getItem('username')});
         if(check.data ==='failed') window.location.assign('http://localhost:3000/login')
-        console.log(check.data)
+      //  / console.log(check.data)
     }
     response()
 
      const fetchAll = async () =>{
-      await axios.get('/read').then((res)=>{
+      await axios.post('/read',{username:sessionStorage.getItem('username')}).then((res)=>{
         setUserDetails(res.data)
-        console.log(res.data)
+       // console.log(res.data)
       }).catch((err)=>{
         console.log('An error has occured' , err)
       })
 
      }
      fetchAll()
-        const interval = setInterval (()=>{
-          response()
-            fetchAll()
-        },10000)
-        return()=>{
-                clearInterval(interval)
-        }
     
-},[])
-console.log(userDetails)
-
+},[userDetails])
   return (
     <>
       <section

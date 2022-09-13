@@ -1,11 +1,10 @@
 const router = require('express').Router()
 const profileModel = require('../model/imageModel')
 
-router.get('/', async (req, res) =>{
-   const sess = req.session
+router.post('/', async (req, res) =>{
 
-   if(sess.username){
-      const username = sess.username
+   if(req.body){
+      const username = req.body.username
       const profile = new profileModel({
          username: username
       })
@@ -15,7 +14,7 @@ router.get('/', async (req, res) =>{
         if(allData){
          res.json(allData)
         // console.log(allData)
-         console.log('The data exist and it has been sent')
+       //  console.log('The data exist and it has been sent')
         }else{
          console.log('Unable to locate profile')
         }

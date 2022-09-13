@@ -24,83 +24,85 @@ router.get('/',(req , res)=>{
     console.log(check)
 })
 router.post('/',upload.single('file'), (req , res)=>{
-  const sess = req.session
-      console.log(JSON.parse(req.body.data))
+
       const data = JSON.parse(req.body.data)
-    const username = sess.username
-    const email = data.email
-    const address = data.address
-    const phone = data.phone
+      if(data){
+      const username = data.username
+          const email = data.email
+          const address = data.address
+          const phone = data.phone
 
-      const details = {
-                email : email,
-              address : address
-          }
-
-         const validationRule ={
-              "email":'required|email',
-              "address": "required|string|max:200"
-          }
-
-          validator(details, validationRule, {}, (err, status)=>{
-            if(!status){
-                    console.log('An error has occured')
-                          console.log(err)
-                res.send('error')
-              }else{
-              const validPhone = isValidPhone(phone);
-                if(validPhone === true){
-
-                  const oldFilePath = req.file.path
-                  const uploadFolder = path.resolve('./public' , req.file.filename)
-
-                  console.log('Phone number is valid')
-                  const extensionName = path.extname(req.file.filename); // fetch the file extension
-                  const allowedExtension = ['.png','.jpg','.jpeg'];
-                  console.log(extensionName , allowedExtension)
-                  if(!allowedExtension.includes(extensionName)){
-                    res.send('error')
-                    console.log('invalid file type')
-                  }else{
-                    if(req.file.size > 50 * 1024){
-                      res.send('error')
-                      console.log('file too large')
-                    }else{
-
-                            profileModel.exists({username:username} , (err , result )=>{
-                              if(result){
-                                console.log(result)
-                                profileModel.updateOne({username:username} , {$set:{
-                                  email: email,
-                                  address:address,
-                                  phone:phone,
-                                  image:{
-                                      data:fs.readFileSync(path.resolve('./public/' + req.file.filename)),
-                                      contentType:"image/png"
-                                  }
-                                }} , (err , innerResult) =>{
-                                  if(innerResult){
-                                    res.send('success')
-                                    console.log('profile has been updated successfully')
-                                    console.log(innerResult)
-                                  }else{
-                                    console.log('unable to update profile')
-                                  }
-                                })
-                              }else{
-                                console.log(username)
-                                console.log('The user profile could not be found')
-                              }
-                            })
-                    }
-
-                  }
-                }else{
-                  console.log('Invalid phone number')
+            const details = {
+                      email : email,
+                    address : address
                 }
 
-              }
-          })
+              const validationRule ={
+                    "email":'required|email',
+                    "address": "required|string|max:200"
+                }
+
+                validator(details, validationRule, {}, (err, status)=>{
+                  if(!status){
+                          console.log('An error has occured')
+                                console.log(err)
+                      res.send('error')
+                    }else{
+                    const validPhone = isValidPhone(phone);
+                      if(validPhone === true){
+
+                        const oldFilePath = req.file.path
+                        const uploadFolder = path.resolve('./public' , req.file.filename)
+
+                        console.log('Phone number is valid')
+                        const extensionName = path.extname(req.file.filename); // fetch the file extension
+                        const allowedExtension = ['.png','.jpg','.jpeg'];
+                        console.log(extensionName , allowedExtension)
+                        if(!allowedExtension.includes(extensionName)){
+                          res.send('error')
+                          console.log('invalid file type')
+                        }else{
+                          if(req.file.size > 50 * 1024){
+                            res.send('error')
+                            console.log('file too large')
+                          }else{
+
+                                  profileModel.exists({username:username} , (err , result )=>{
+                                    if(result){
+                                      console.log(result)
+                                      profileModel.updateOne({username:username} , {$set:{
+                                        email: email,
+                                        address:address,
+                                        phone:phone,
+                                        image:{
+                                            data:fs.readFileSync(path.resolve('./public/' + req.file.filename)),
+                                            contentType:"image/png"
+                                        }
+                                      }} , (err , innerResult) =>{
+                                        if(innerResult){
+                                          res.send('success')
+                                          console.log('profile has been updated successfully')
+                                          console.log(innerResult)
+                                        }else{
+                                          console.log('unable to update profile')
+                                        }
+                                      })
+                                    }else{
+                                      console.log(username)
+                                      console.log('The user profile could not be found')
+                                    }
+                                  })
+                          }
+
+                        }
+                      }else{
+                        console.log('Invalid phone number')
+                      }
+
+                    }
+                })
+      }
+    
 })
 
 module.exports = router

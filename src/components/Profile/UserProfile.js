@@ -8,7 +8,8 @@ function UserProfile() {
   const [ data, setData ] = useState({
     email:'',
     phone:'',
-    address:''
+    address:'',
+    username:sessionStorage.getItem('username')
   })
   const [error, setError] = useState("");
 
@@ -16,7 +17,7 @@ function UserProfile() {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
     setData(newData);
-    console.log(data);
+    //console.log(data);
   }
 
   const fileChangeHandler = (e) => {
@@ -30,11 +31,11 @@ function UserProfile() {
      profileData.append('data', JSON.stringify(data))
       profileData.append('file', profileImage)
          console.log('Working on it mehn')
-       console.log(profileData)
+     //  console.log(profileData)
      const result = await axios.post('/adminProfile',profileData)
       if (result.data === 'log'){
             window.location.assign('http://localhost:3000/login')
-              console.log(result.data)
+              // console.log(result.data)
            }else if (result.data === 'error'){
         setError('Invalid details')
              }else if(result.data === 'success'){
@@ -47,7 +48,7 @@ function UserProfile() {
     useEffect(()=>{
       
         const response = async ()=>{
-            let check = await axios.get('/check');
+          let check = await axios.post('/check',{username:sessionStorage.getItem('username')});
             if(check.data ==='failed') window.location.assign('http://localhost:3000/login')
             console.log(check.data)
         }

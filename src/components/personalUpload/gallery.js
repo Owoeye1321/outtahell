@@ -7,33 +7,31 @@ function Gallery(){
   const [ diary , setDiary ] = useState([])
  useEffect(()=>{
   const response = async ()=>{
-    let check = await axios.get('/check');
+    let check = await axios.post('/check',{username:sessionStorage.getItem('username')});
     if(check.data ==='failed') window.location.assign('http://localhost:3000/login')
     console.log(check.data)
 }
 response()
 
 const fetchAll = async () =>{
-  await axios.get('/addHostelDetails').then((res)=>{
+  await axios.post('/personalGallery',{username:sessionStorage.getItem('username')}).then((res)=>{
     setDiary(res.data)
-    console.log(res.data)
+   // console.log(res.data)
   }).catch((err)=>{
     console.log('An error has occured' , err)
 })
 
  }
  fetchAll()
-    const interval = setInterval (()=>{
-      response()
-        fetchAll()
-    },10000)
-    return()=>{
-            clearInterval(interval)
-    }
+    // const interval = setInterval (()=>{
+    //   response()
+    //     fetchAll()
+    // },10000)
+    // return()=>{
+    //         clearInterval(interval)
+    // }
 
- },[])
-
- console.log(diary)
+ },[diary])
   
     return (
         <>
@@ -52,8 +50,7 @@ const fetchAll = async () =>{
 
               return(
                 <>
-            
-            <div className="col-sm-6 col-md-4 col-lg-3  p-4">
+            <div className="col-sm-6 col-md-4 col-lg-3  p-4" key={key._id}>
             <div id = {Styles.joining} className = "p-2"
             style={{boxShadow: "1px 1px 5px 3px lightgrey",}}
             >
