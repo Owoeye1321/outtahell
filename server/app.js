@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const express = require('express')
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
 //const session = require('express-session')
 const bodyParser = require('body-parser')
 // const MongoStore = require('connect-mongo');
@@ -12,6 +13,7 @@ const app = express()
 app.use(bodyParser.json());
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors())
 const path = require('path')
 //const fileUpload = require("express-fileupload");
 //const path = require('path')

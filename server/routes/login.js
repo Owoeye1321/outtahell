@@ -14,15 +14,8 @@ router.post('/', (req, res) =>{
   //checking if a user exist
       userModel.exists({username:username}, (err, result)=>{
          if(result){
-            req.session.username = username
-               req.session.save(( sessionError , sessionResult )=>{  
-                  if(!sessionError){
-                     res.send('success')
-                   console.log('The user exist')
-                   console.log('The session is set',req.session)
-                  }
-                 
-               })
+            res.send('success')
+            console.log('Logged in successfully')
          }else{
             res.send('invalid')
             console.log('The user does not exist')

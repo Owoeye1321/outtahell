@@ -8,6 +8,7 @@ router.post('/',(req, res)=>{
         
     }else{
        // console.log(req.body.username)
+            console.log(req.body)
             res.send('success')
     }
 })

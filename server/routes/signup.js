@@ -59,20 +59,12 @@ router.post('/',async (req, res) =>{
 
                      //saving to sign up page
                        signUp.save().then((result)=>{
+                        res.send('success')
                            console.log('added a new profile')
                            console.log('file has been saved to database successfully')
                            
                      //saving to profile page
                      profile.save().then((innerResult)=>{
-                        req.session.username = username
-                        req.session.save(( sessionError , sessionResult )=>{  
-                           if(!sessionError){
-                              res.send('success')
-                            console.log('The user is saved')
-                            console.log('The session is set',req.session)
-                           }
-                          
-                        })
                            console.log('user profile has been updated')
                         }).catch((err)=>{
                            console.log(err)
