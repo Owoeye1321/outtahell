@@ -61,7 +61,7 @@ function Admin() {
     // alert(window.width)
     const response = async ()=>{
         let check = await axios.post('https://futa-hostels-10467.herokuapp.com/check',{username:sessionStorage.getItem('username')});
-        if(check.data ==='failed') window.location.assign('https://futa-hostel-rentals-c3bf0b.netlify.app/service')
+        if(check.data ==='failed') window.location.assign('https://futa-hostel-rentals-c3bf0b.netlify.app/login')
       //  / console.log(check.data)
     }
     response()
