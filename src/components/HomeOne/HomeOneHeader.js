@@ -39,7 +39,7 @@ function HomeOneHeader({ action }) {
             <div className="col-lg-4  col-md-7 col-sm-6 col-6 order-2 order-sm-3">
               <div className="appie-btn-box text-right">
                 <Link className="login-btn" to="/dashboard">
-                  <i className="fal fa-user" /> Dashboard
+                  <i className="fal fa-user" />
                 </Link>
                 <Link className="main-btn ml-30" to="/view_available_hostels">
                   Get Started

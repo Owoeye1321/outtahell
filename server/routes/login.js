@@ -12,7 +12,7 @@ router.post('/', (req, res) =>{
       password:password,
   })
   //checking if a user exist
-      userModel.exists({username:username}, (err, result)=>{
+      userModel.exists({username:username,password:password}, (err, result)=>{
          if(result){
             res.send('success')
             console.log('Logged in successfully')
