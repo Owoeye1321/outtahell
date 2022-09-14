@@ -97,6 +97,7 @@ function FooterHomeOne({ className }) {
               <div className="footer-copyright d-flex align-items-center justify-content-center pt-35">
                 <div className="copyright-text">
                   <p>Copyright © 2021 C-Rentals. All rights reserved.</p>
+                  <a href="https://mainstack.me/cyberxurde" style={{color:"black"}}>The Brain box</a>
                 </div>
               </div>
             </div>
