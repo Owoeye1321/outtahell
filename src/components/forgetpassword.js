@@ -59,7 +59,7 @@ function Forgetpassword() {
 	                            </div>
 	                        </form>
 	            
-                        <center>© 2021 FUTA PROJECT - All Rights Reserved.</center>
+                        <center>© 2021 KWASU PROJECT - All Rights Reserved.</center>
                         </div>
 
         
