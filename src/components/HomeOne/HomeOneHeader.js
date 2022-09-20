@@ -42,7 +42,7 @@ function HomeOneHeader({ action }) {
                   <i className="fal fa-user" />
                 </Link>
                 <Link className="main-btn ml-30" to="/view_available_hostels">
-                  Get Started
+                  View Hostels
                 </Link>
                 <div
                   onClick={(e) => action(e)}

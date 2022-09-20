@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 9000;
 // combines the 2 above, then you can parse incoming Request Object if object, with nested objects, or generally any type.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static( path.resolve('./public')));
-app.use(express.static( path.resolve('./public')));
+//app.use(express.static( path.resolve('./public')));
 // calling body-parser to handle the Request Object from POST requests
 const oneDay = 1000 * 60 * 60 * 24;
 app.set('trust proxy', 1)

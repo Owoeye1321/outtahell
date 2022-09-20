@@ -14,7 +14,7 @@ router.post('/',async ( req, res ) =>{
     if(req.body.email){
       async function main() {
   
-          const email = req.body.email17
+          const email = req.body.email
            const response =  await user.findOne({email:email})
                if(response){
               //  console.log(response)

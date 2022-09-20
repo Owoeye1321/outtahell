@@ -42,7 +42,7 @@ function Drawer({ drawer, action }) {
                       className="menu-item-has-children active"
                     >
                       <span className="menu-expand"></span>
-                      <a href="#">Home</a>
+                      <a href="/">Home</a>
                     </li>
                     <li
                       onClick={(e) => handler(e, "service")}
@@ -64,6 +64,13 @@ function Drawer({ drawer, action }) {
                       className="menu-item-has-children active"
                     >
                       <Link to="/contact">Contact</Link>
+                    </li>
+                    <li
+                      onClick={(e) => handler(e, "view_available_hostels-hostels")}
+                      id="view_available_hostels"
+                      className="menu-item-has-children active"
+                    >
+                      <Link to="/view_available_hostels">View Hostels</Link>
                     </li>
                   </ul>
                 </div>
