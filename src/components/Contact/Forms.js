@@ -18,9 +18,9 @@ function Forms() {
       //  console.log(data)
     }
     
-    const submit = async(e)=>{      
+    const onSubmit = async(e)=>{      
         e.preventDefault()
-        const result = await axios.post('https://futa-hostels-10467.herokuapp.com//dashboard',{data})
+        const result = await axios.post('https://futa-hostels-10467.herokuapp.com/dashboard',{data})
    if(result.data == "success"){
            alert("Email has been sent successfully to C-rentals official")
         window.location.assign("https://futa-hostel-rentals-c3bf0b.netlify.app/")
@@ -95,7 +95,9 @@ function Forms() {
                                         </div>
                                     </div>
                                     <div className="col-md-6 text-right">
-                                        <input type="submit" value="SendMessage" />
+                                        <input type="submit" value="SendMessage" onClick={(e)=>{
+                                            onSubmit(e)
+                                        }}/>
                                     </div>
                                 </form>
                             </div>
