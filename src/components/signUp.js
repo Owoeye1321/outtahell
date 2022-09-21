@@ -98,7 +98,7 @@ function Login() {
           <p className="text-center mt-3 mb-0">
             Already have an account? <a href="/login">Sign In</a>
           </p>
-          <center>© 2021 FUTA PROJECT - All Rights Reserved.</center>
+          <center>© 2021 KWASU PROJECT - All Rights Reserved.</center>
         </div>
 
         <div className="col-sm-12 col-md-6 col-lg-4"></div>

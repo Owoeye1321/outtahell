@@ -15,7 +15,7 @@ However, agent can also update and edit profile details
 
 #### Account Security
 This diary provides security to all informations stored on it, with user authentication and verification. <br />
-Login and Sign up page for user authentication, sessionStorage is used to monitor each user activities
+Login, Sign up and forget password page for user authentication, sessionStorage is used to monitor each user activities
 
 ##### Contact
 This is a page to send a message to the C-rentals officials for an update or patronage
