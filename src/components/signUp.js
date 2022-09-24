@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import axios from "axios";
 import { motion } from 'framer-motion/dist/framer-motion'
-function Login() {
+function Signup() {
   const [color, setColor] = useState("green");
   const [data, setData] = useState({
     username: "",
@@ -107,4 +107,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
