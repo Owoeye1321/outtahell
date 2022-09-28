@@ -1,72 +1,75 @@
-require('dotenv').config();
-   const clientId = process.env.client_id
-   const client_secret = process.env.client_secret
-   const token_uri = process.env.token_uri
+require('dotenv').config()
+const clientId = process.env.client_id
+const client_secret = process.env.client_secret
+const token_uri = process.env.token_uri
 
-      const router = require('express').Router()
-      const nodemailer = require('nodemailer')
+const router = require('express').Router()
+const nodemailer = require('nodemailer')
 
-router.post('/',(req, res) =>{
+router.post('/', (req, res) => {
   console.log(req.body)
-   if(req.body){
+  if (req.body) {
     async function main() {
-            
-        const fname = req.body.data.fname
-                 const email = req.body.data.email
-           const subject = req.body.data.subject 
-    const message = req.body.data.message
+      const fname = req.body.data.fname
+      const email = req.body.data.email
+      const subject = req.body.data.subject
+      const message = req.body.data.message
 
-               // create reusable transporter object using the default SMTP transport
-                   let transporter = await nodemailer.createTransport({
-                       service: 'gmail',
-                       auth: {
-                         type: 'OAuth2',
-                         user: "owoeye1321@gmail.com",
-                         pass: "Owoeye1234",
-                         clientId: clientId,
-                         clientSecret: client_secret,
-                         refreshToken: token_uri
-                       }
-               //       host: "smtp.gmail.com",
-               //           port: 465,
-               //       secure: true, // true for 465, false for other ports
-               //     auth: {
-               //         user: "owoeye1321@gmail.com", // generated ethereal user
-               //         pass: "Owoeye1234", // generated ethereal password
-               // }
-               },(err, result)=>{
-                   if(!err)console.log(result);console.log(err)
-               });
-           // send mail with defined transport object
-             transporter.sendMail({
-              from:email, // sender address
-                   to: "Owoeye1321@gmail.com", // list of receivers
-                       subject: subject, // Subject line
-                  html:`<h1>Hello C -Rentals</h1> <h5>I'm ${fname} </h5> \n <h6>${message}</h6>` // plain text body
-           },(err, result)=>{
-               if(!err){ 
-                   console.log('working on sending the emails')
-                      console.log(result);
-                   res.send('success')
-               }else{
-                   console.log('An error has occured and an issue need to be fixed')
-                       console.log(err)
-                   }
-           }); 
-       // console.log("Message sent: %s", info.messageId);
-           // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-           // Preview only available when sending through an Ethereal account
-           // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-           // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-       }
-       main().catch(console.error);
-            }else{
-                res.send('error')
-                console.log('Invalid parameter')
-            }
-   
-        
-        
-      });
+      // create reusable transporter object using the default SMTP transport
+      let transporter = await nodemailer.createTransport(
+        {
+          service: 'gmail',
+          auth: {
+            type: 'OAuth2',
+            user: 'owoeye1321@gmail.com',
+            pass: 'Owoeye1234',
+            clientId: clientId,
+            clientSecret: client_secret,
+            refreshToken: token_uri,
+          },
+          //       host: "smtp.gmail.com",
+          //           port: 465,
+          //       secure: true, // true for 465, false for other ports
+          //     auth: {
+          //         user: "owoeye1321@gmail.com", // generated ethereal user
+          //         pass: "Owoeye1234", // generated ethereal password
+          // }
+        },
+        (err, result) => {
+          if (!err) console.log(result)
+          console.log(err)
+        },
+      )
+      // send mail with defined transport object
+      transporter.sendMail(
+        {
+          from: email, // sender address
+          to: 'Owoeye1321@gmail.com', // list of receivers
+          subject: subject, // Subject line
+          html: `<h1>Hello C -Rentals</h1> <h5>I'm ${fname} </h5> \n <h6>${message}</h6>`, // plain text body
+        },
+        (err, result) => {
+          if (!err) {
+            console.log('working on sending the emails')
+            console.log(result)
+            res.send('success')
+          } else {
+            console.log('An error has occured and an issue need to be fixed')
+            console.log(err)
+          }
+        },
+      )
+      // console.log("Message sent: %s", info.messageId);
+      // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+      // Preview only available when sending through an Ethereal account
+      // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+      // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    }
+    main().catch(console.error)
+  } else {
+    res.send('error')
+    console.log('Invalid parameter')
+  }
+})
 
 module.exports = router
