@@ -22,7 +22,7 @@ function Signup() {
   const submit = async (e) => {
     e.preventDefault()
     const result = await axios.post(
-      'https://kwasu-hostel-rentals-c3bf0b.netlify.app/signUp',
+      'https://futa-hostels-10467.herokuapp.com/signUp',
       {
         username: data.username,
         password: data.password,
