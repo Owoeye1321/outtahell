@@ -22,7 +22,7 @@ function Signup() {
   const submit = async (e) => {
     e.preventDefault()
     const result = await axios.post(
-      'https://futa-hostels-10467.herokuapp.com/signUp',
+      'https://futa-hostels-10467.herokuapp.com/signup',
       {
         username: data.username,
         password: data.password,
