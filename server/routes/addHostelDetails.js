@@ -30,7 +30,7 @@ router.post('/', upload.single('file'), (req, res) => {
       console.log('invalid file type')
     } else {
       if (req.file.size > 50 * 1024) {
-        res.send('error')
+        res.send('File too large')
         console.log('file too large')
       } else {
         const postData = new hostelPosts({
@@ -57,7 +57,7 @@ router.post('/', upload.single('file'), (req, res) => {
       }
     }
   } else {
-    res.send('error')
+    res.send('Unable to locate data')
     console.log('User authentication needed')
   }
 })
