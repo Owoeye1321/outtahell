@@ -57,7 +57,7 @@ router.post('/', upload.single('file'), (req, res) => {
       }
     }
   } else {
-    res.send('Unable to locate data')
+    res.send('Unable to find data')
     console.log('User authentication needed')
   }
 })
