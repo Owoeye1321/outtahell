@@ -49,7 +49,7 @@ function Admin() {
       alert('Hostel information saved successfully')
     } else {
       setColor('red')
-      setError('Unable to save Details')
+      setError(checkingFormUpdates.data)
     }
   }
 
