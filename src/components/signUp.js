@@ -36,7 +36,7 @@ function Signup() {
     } else if (result.data === 'success') {
       sessionStorage.setItem('username', data.username)
       window.location.assign(
-        'https://futa-hostel-rentals-c3bf0b.netlify.app/dashboard',
+        'https://kwasu-hostel-rentals-c3bf0b.netlify.app/dashboard',
       )
     } else {
       setColor('red')
