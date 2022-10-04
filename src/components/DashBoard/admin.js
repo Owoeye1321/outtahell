@@ -5,6 +5,7 @@ import logo from '../../assets/images/see.svg'
 import axios from 'axios'
 
 function Admin() {
+  const [color, setColor] = useState('green')
   const [userDetails, setUserDetails] = useState([])
   const [addHostelDetails, setAddHostelDetails] = useState({
     hostel_name: '',
@@ -13,6 +14,7 @@ function Admin() {
     username: sessionStorage.getItem('username'),
   })
   const [hostelPicture, setHostelPicture] = useState('')
+  const [error, setError] = useState('')
 
   //// performing some dangerous operation round around the spagetti environment
   const [pickFirst, setPickFirst] = useState('block')
@@ -45,6 +47,9 @@ function Admin() {
     if (checkingFormUpdates.data === 'success') {
       console.log('Hostel information saved successfully')
       alert('Hostel information saved successfully')
+    } else {
+      setColor('red')
+      setError('Unable to save Details')
     }
   }
 
@@ -345,6 +350,13 @@ function Admin() {
                         className="form-control bg-primary"
                         style={{ color: 'white' }}
                       />
+                    </div>
+                    <div style={{ fontSize: '10px', marginBottom: '0px' }}>
+                      <center>
+                        <i style={{ marginBottom: '-1px', color: 'red' }}>
+                          {error}
+                        </i>
+                      </center>
                     </div>
                   </form>
                 </div>
