@@ -27,7 +27,7 @@ function Admin() {
     if (logUserOut.data === 'success') {
       sessionStorage.clear()
       window.location.assign(
-        'https://futa-hostel-rentals-c3bf0b.netlify.app/login',
+        'https://kwasu-hostel-rentals-c3bf0b.netlify.app/login',
       )
     }
   }
